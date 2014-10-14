@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+# (1..100).each do
+#
+#   name = Faker::Company.name
+#   username = /[a-z]+/.match(name.downcase)[0]
+#   vendor = {
+#   name: name,
+#   no_of_employees: rand(1..10),
+#   market_id: rand(1..3),
+#   username: username,
+#   password: username.reverse}
+#
+#   Vendor.create(vendor)
+# end
