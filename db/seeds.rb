@@ -22,11 +22,16 @@ end
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-(1..10).each do
-  username = Faker::Name.name[0]
-  email = Faker::Internet.email
-  password = Faker::Internet.password(8)
-  Merchant.create
+(1..10).each do 
+  name = Faker::Company.name
+  username = /[a-z]+/.match(name.downcase)[0]
+  merchant = {  
+    name: name, 
+    username: username,
+    email: username + "@" + username + ".com",
+    password: username.reverse
+  }
+  Merchant.create(merchant)
 end
 
 
