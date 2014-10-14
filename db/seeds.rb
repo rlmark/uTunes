@@ -27,4 +27,17 @@
 
 
 
-
+# (1..100).each do
+#
+#   name = Faker::Company.name
+#   username = /[a-z]+/.match(name.downcase)[0]
+#   vendor = {
+#   name: name,
+#   no_of_employees: rand(1..10),
+#   market_id: rand(1..3),
+#   username: username,
+#   password: username.reverse}
+#
+#   Vendor.create(vendor)
+# end
+>>>>>>> 8eabe1db83e98856c4768497764af0031c1759e6
