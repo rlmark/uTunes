@@ -7,6 +7,26 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # (1..100).each do
 #
 #   name = Faker::Company.name
@@ -20,6 +40,7 @@
 #
 #   Vendor.create(vendor)
 # end
+
 
 
 
