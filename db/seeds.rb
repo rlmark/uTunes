@@ -4,13 +4,14 @@
 
 # Product Seeding
 (1..100).each do
+  name = Faker::Company.name
   product = {
-    name: Faker::Company.name,
+    name: name,
     stock: rand(0..10),
     merchant_id: rand(1..10),
-    description: Faker::Lorem,
+    description: Faker::Lorem.sentence(2),
     price: rand(500..5000),
-    image: Faker::Avatar
+    image: Faker::Avatar.image( name, "300x300")
   }
   Product.create(product)
 end
@@ -22,11 +23,11 @@ end
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-(1..10).each do 
+(1..10).each do
   name = Faker::Company.name
   username = /[a-z]+/.match(name.downcase)[0]
-  merchant = {  
-    name: name, 
+  merchant = {
+    name: name,
     username: username,
     email: username + "@" + username + ".com",
     password: username.reverse
