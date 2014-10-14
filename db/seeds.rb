@@ -20,3 +20,27 @@
 #
 #   Vendor.create(vendor)
 # end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+categories = ["Norwegian Death Metal",
+  "Trap Music", "Trip Hop", "Hot Jazz",
+  "Indian Flute Music", "Weeding Music", "Country Pop",
+  "Traditional Cowboy", "Breakbeat","West Coast Rap",
+  "Indie Pop", "Inspirational"]
+
+categories.each do |category_name|
+  Category.create(name: category_name)
+end
