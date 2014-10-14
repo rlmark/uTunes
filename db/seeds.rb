@@ -2,7 +2,18 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 
-
+# Product Seeding
+(1..100).each do
+  product = {
+    name: Faker::Company.name,
+    stock: rand(0..10),
+    merchant_id: rand(1..10),
+    description: Faker::Lorem,
+    price: rand(500..5000),
+    image: Faker::Avatar
+  }
+  Product.create(product)
+end
 
 
 
