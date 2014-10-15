@@ -1,11 +1,13 @@
 
-<! -- <% @products.each do |product| %>
-<article>
-  <h3><%= product.name %> </h3>
-  <%= link_to "Edit", edit_product_path(product.id) %>
-  <%= link_to "Delete", delete_product_landing_path(product.id) %>
-<hr>
-</article>
+<% @categories.each do |category| %>
+  <u><%= category.name %></u>
+  <br>
+  <% category.products.each do |product| %>
+      <%= product.album_name %>
+      <%= " by " %>
+      <%= product.artist %>
+      <br>
+  <% end %>
+  <br>
 <% end %>
 
-<%=link_to "Back to landing page", "/vendor/#{session[:v_id]}/vendor_landing"%>form> -->
