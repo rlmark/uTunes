@@ -14,6 +14,11 @@ class SessionsController < ApplicationController
     end
   end
 
+  def delete
+    reset session
+    redirect_to root_path
+  end
+
   # def create
   #   @vendor = Vendor.find_by username: params[:vendor][:username], password: params[:vendor][:password]
   #   if @vendor == nil
