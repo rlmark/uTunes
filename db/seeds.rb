@@ -2,7 +2,7 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 
-# Product Seeding
+# Product
 (1..100).each do
   name = Faker::Commerce.product_name
   product = {
@@ -17,13 +17,13 @@
   Product.create(product)
 end
 
+# Ratings
+(1..150).each do 
+  id = (1..100).to_a.shuffle.first 
+  Rating.create(stars: rand(1..5), comments: Faker::Lorem.sentence(1), product_id: id)
+end 
 
-
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
+# Merchants
 (1..10).each do
   name = Faker::Company.name
   username = /[a-z]+/.match(name.downcase)[0]
@@ -36,20 +36,23 @@ end
   Merchant.create(merchant)
 end
 
-
-
-# Build random categories_products associates
-# Associate product_id with random category_id 2x
-# 100 products
-# 12 categories
-
+# CategoriesProducts
 Product.all.each do |product|
   array = (1..12).to_a.shuffle
   CategoriesProducts.create(product_id: product.id, category_id: array[0])
   CategoriesProducts.create(product_id: product.id, category_id: array[1])
 end
 
+# Categories
+categories = ["Norwegian Death Metal",
+  "Trap Music", "Trip Hop", "Hot Jazz",
+  "Indian Flute Music", "Weeding Music", "Country Pop",
+  "Traditional Cowboy", "Breakbeat","West Coast Rap",
+  "Indie Pop", "Inspirational"]
 
+categories.each do |category_name|
+  Category.create(name: category_name)
+end
 
 
 
@@ -70,12 +73,4 @@ end
 
 
 
-categories = ["Norwegian Death Metal",
-  "Trap Music", "Trip Hop", "Hot Jazz",
-  "Indian Flute Music", "Weeding Music", "Country Pop",
-  "Traditional Cowboy", "Breakbeat","West Coast Rap",
-  "Indie Pop", "Inspirational"]
 
-categories.each do |category_name|
-  Category.create(name: category_name)
-end
