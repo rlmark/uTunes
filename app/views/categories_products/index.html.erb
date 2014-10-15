@@ -1,0 +1,11 @@
+
+<! -- <% @products.each do |product| %>
+<article>
+  <h3><%= product.name %> </h3>
+  <%= link_to "Edit", edit_product_path(product.id) %>
+  <%= link_to "Delete", delete_product_landing_path(product.id) %>
+<hr>
+</article>
+<% end %>
+
+<%=link_to "Back to landing page", "/vendor/#{session[:v_id]}/vendor_landing"%>form> -->
