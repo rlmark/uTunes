@@ -4,6 +4,16 @@ class SessionsController < ApplicationController
 
   end
 
+  def create
+    @merchant = Merchant.find_by(username: params[:merchant][:username], password: params[:merchant][:password])
+    if @merchant == nil
+      redirect_to root_path
+    else
+      session[:merchant_id] = @merchant.id
+      redirect_to merchants_list_path
+    end
+  end
+
   # def create
   #   @vendor = Vendor.find_by username: params[:vendor][:username], password: params[:vendor][:password]
   #   if @vendor == nil

@@ -3,14 +3,13 @@
 <div>
   <% @all_merchants.each do |merchant|  %>
 
-    Name: <%= merchant.name %><br>
+    <b>Merchant Name: <%= merchant.name %><br></b>
     ID: <%= merchant.id %><br>
     Email: <%= merchant.email %><br>
     Password: <%= merchant.password %><br>
     Username: <%= merchant.username %><br>
-
-
-    <div class="productscroll">
+    <hr>
+    <div class="products">
       <% merchant.products.each do |product|%>
         <%= product.album_name %><br>
       <% end %>
