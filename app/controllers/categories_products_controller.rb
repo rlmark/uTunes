@@ -1,9 +1,7 @@
 class CategoriesProductsController < ApplicationController
 
   def index
-    @categories_products=CategoriesProducts.all
-    @products=Product.all
-    @categories=Category.all
+    @categories=Category.all # can use associations to reach the products
   end
 
 
