@@ -9,6 +9,7 @@
   <img id = "product_avatar" src=<%= product.image %>  alt="product photo" height = 100px width = 100px/>
 
   <li><strong><%= product.album_name %></strong></li>
+  <li><%= product.artist %></li>
   <li><%= product.description %></li>
   <li><%= "#{number_to_currency(product.price/100.0)}" %></li>
   <li><%= "Sold by: #{Merchant.find(product.merchant_id).name}" %></li>
