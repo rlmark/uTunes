@@ -1,0 +1,11 @@
+<!-- SHOW ALL MERCHANTS  -->
+
+<div>
+  <% @all_merchants.each do |merchant|  %>
+    Name: <%= merchant.name %><br>
+    ID: <%= merchant.id %><br>
+    Email: <%= merchant.email %><br>
+    Password: <%= merchant.password %><br>
+    Username: <%= merchant.username %><br>
+  <% end  %>
+</div>
