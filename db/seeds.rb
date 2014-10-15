@@ -37,6 +37,22 @@ end
 
 
 
+# Build random categories_products associates
+# Associate product_id with random category_id 2x
+# 100 products
+# 12 categories
+2.times do 
+  (1..100).each do |i| 
+    array = (1..12).to_a.shuffle
+    categories_products = {
+    product_id: i,
+    category_id: array.first
+    }
+    CategoriesProducts.create(categories_products)
+  end
+end
+  
+  
 
 
 
@@ -67,18 +83,6 @@ end
 #
 #   Vendor.create(vendor)
 # end
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
