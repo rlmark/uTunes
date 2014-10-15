@@ -2,7 +2,7 @@ class MerchantsController < ApplicationController
 
   def index
     @all_merchants = Merchant.all
-    @all_products = Product.where(merchant_id: :id)
+    @all_products = Product.all
   end
 
 

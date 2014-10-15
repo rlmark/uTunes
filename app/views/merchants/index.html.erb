@@ -9,7 +9,9 @@
     Username: <%= merchant.username %><br>
 
     <div class="productscroll">
-      <% merchant.products  %>
+      <% merchant.products.each do |product|%>
+        <%= product.album_name %><br>
+      <% end %>
     </div>
     <hr>
   <% end  %>
