@@ -2,10 +2,12 @@
 
 <div>
   <% @all_merchants.each do |merchant|  %>
-    Name: <%= merchant.name %>
-    ID: <%= merchant.id %>
-    <%= merchant.email %>
-    <%= merchant.password %>
-    <%= merchant.username %>
+
+    Name: <%= merchant.name %><br>
+    ID: <%= merchant.id %><br>
+    Email: <%= merchant.email %><br>
+    Password: <%= merchant.password %><br>
+    Username: <%= merchant.username %><br>
+
   <% end  %>
 </div>
