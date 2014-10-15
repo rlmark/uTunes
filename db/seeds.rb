@@ -6,7 +6,7 @@
 (1..100).each do
   name = Faker::Commerce.product_name
   product = {
-    name: name + " album",
+    album_name: name + " album",
     stock: rand(0..10),
     merchant_id: rand(1..10),
     description: Faker::Lorem.sentence(2),
@@ -41,8 +41,8 @@ end
 # Associate product_id with random category_id 2x
 # 100 products
 # 12 categories
-2.times do 
-  (1..100).each do |i| 
+2.times do
+  (1..100).each do |i|
     array = (1..12).to_a.shuffle
     categories_products = {
     product_id: i,
@@ -51,8 +51,8 @@ end
     CategoriesProducts.create(categories_products)
   end
 end
-  
-  
+
+
 
 
 
