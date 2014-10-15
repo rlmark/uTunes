@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  def new
+  def index
 
   end
 
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
   #     redirect_to "/vendors/profile"
   #   end
   # end
-   
+
   # def delete
   #   session[:vendor_id] = nil
   #   redirect_to root_path

@@ -1,5 +1,9 @@
 class ProductsController < ApplicationController
 
+  def index
+    @products = Product.all.sort_by{|product| product.album_name}
+  end
+
   def new
 
   end
