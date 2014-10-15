@@ -11,7 +11,7 @@ class MerchantsController < ApplicationController
 
   def create
 
-    @merchant = Merchant.new(merchant_params)
+    @merchant = Merchant.new(params.require(:merchant).permit(:name, :email, :username, :password))
     if @merchant.save
       redirect_to root_path
     else
