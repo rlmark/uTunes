@@ -13,7 +13,9 @@
   <li><%= "#{number_to_currency(product.price/100.0)}" %></li>
   <li><%= "Sold by: #{Merchant.find(product.merchant_id).name}" %></li>
   <li><%= "Number in stock: #{product.stock}" %></li>
-  <li><%= "Categories: #{product.categories}" %></li>
+  <li><% product.categories.each do |category|%>
+    <%= category.name %>
+    <% end %></li>
 </ul>
 <% end %>
 </div>
