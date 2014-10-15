@@ -4,14 +4,14 @@
 
 # Product Seeding
 (1..100).each do
-  name = Faker::Company.name
+  name = Faker::Commerce.product_name
   product = {
-    name: name,
+    name: name + " album",
     stock: rand(0..10),
     merchant_id: rand(1..10),
     description: Faker::Lorem.sentence(2),
     price: rand(500..5000),
-    image: Faker::Avatar.image( name, "300x300")
+    image: Faker::Avatar.image( /[a-z]+/.match(name.downcase)[0], "300x300")
   }
   Product.create(product)
 end
