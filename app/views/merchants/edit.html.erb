@@ -1,10 +1,11 @@
-<form class="new_entry" action="/merchants/create" method="post" >
+<form class="new_entry" action="merchant/<%= @merchant.id %>" method="post" >
+  <input type="hidden" name="_method" value="PUT">
 
-  <h1>New Merchant</h1>
+  <h1>Edit Merchant</h1>
 
   <div>
     <label for="name">Company Name: </label>
-    <input type="text" name="merchant[name]" %>
+    <input type="text" name="merchant[name]" />
   </div>
   <div>
     <label for="email">Email: </label>
@@ -21,6 +22,6 @@
 
 <br>
 
-  <input type = "submit" value="Create Merchant Account" class="submit">
+  <input type = "submit" value="Submit Merchant Information" class="submit">
 
 </form>

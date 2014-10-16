@@ -5,7 +5,7 @@
 </div>
 
 <div class="edit_profile">
-  <h2>Edit Profile</h2>
+  <h2>Merchant Profile</h2>
   <p>
     Shop Name: <%= @merchant_dash.name %>
   </p>
@@ -16,6 +16,6 @@
     Email: <%= @merchant_dash.email %>
   </p>
   <p>
-    Edit password: 
+    <%= link_to "Edit your information", edit_merchant_path(@merchant_dash.id) %>
   </p>
 </div>
