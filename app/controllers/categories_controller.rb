@@ -7,4 +7,6 @@ class CategoriesController < ApplicationController
   # create new category
   end
 
+  
+
 end
