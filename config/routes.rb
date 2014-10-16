@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "merchants#dashboard", as: :dashboard
   get "merchant/:id/edit", to: "merchants#edit", as: :edit_merchant
-  put "/merchant/:id", to: "merchants#update"
+  put "/merchant", to: "merchants#update"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
