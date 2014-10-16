@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
 
   def new
+    @categories = Category.all
+    @products = Product.all
 
   end
 
@@ -19,20 +21,14 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  # def create
-  #   @vendor = Vendor.find_by username: params[:vendor][:username], password: params[:vendor][:password]
-  #   if @vendor == nil
-  #     redirect_to root_path
-  #   else
-  #     session[:vendor_id] = @vendor.id
-  #     redirect_to "/vendors/profile"
-  #   end
-  # end
-
-  # def delete
-  #   session[:vendor_id] = nil
-  #   redirect_to root_path
-  # end
+# def dashboard
+#   #raise session[:merchant_id].inspect
+#   @merchant_dash = Merchant.find(session[:merchant_id])
+#   params[:thing] ||= :id
+#   params[:direction] ||= :asc
+#   @products = @merchant_dash.products.order(params[:thing].to_sym => params[:direction].to_sym)
+#
+# end
 
 
 end

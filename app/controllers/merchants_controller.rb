@@ -39,6 +39,7 @@ class MerchantsController < ApplicationController
     params[:thing] ||= :id
     params[:direction] ||= :asc
     @products = @merchant_dash.products.order(params[:thing].to_sym => params[:direction].to_sym)
+
   end
 
 
