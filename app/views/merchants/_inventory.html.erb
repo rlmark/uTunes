@@ -9,8 +9,14 @@
       <li><%= link_to "Asc", "/dashboard?thing=album_name&direction=asc" %></li>
       <li><%= link_to "Desc", "/dashboard?thing=album_name&direction=desc" %></li>
     </ul></th>
-    <th>Price<ul><li>Asc</li><li>Desc</li></ul></th>
-    <th>Stock<ul><li>Asc</li><li>Desc</li></ul></th>
+    <th>Price<ul>
+      <li><%= link_to "Asc", "/dashboard?thing=price&direction=asc" %></li>
+      <li><%= link_to "Desc", "/dashboard?thing=price&direction=desc" %></li>
+      </ul></th>
+    <th>Stock<ul>
+      <li><%= link_to "Asc", "/dashboard?thing=stock&direction=asc" %></li>
+      <li><%= link_to "Desc", "/dashboard?thing=stock&direction=desc" %></li>
+      </ul></th>
     <th>Edit/Delete</th>
   </tr>
    <% @products.each do |product| %>
@@ -18,7 +24,7 @@
       <td><img src=<%=product.image%> width="50"/></td>
       <td><%=product.artist%></td>
       <td><%=product.album_name%></td>
-      <td><%=product.price%></td>
+      <td><%="#{number_to_currency(product.price/100.0)}"%></td>
       <td><%=product.stock%></td>
       <td>
         <ul>
