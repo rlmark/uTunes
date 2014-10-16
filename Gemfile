@@ -40,3 +40,7 @@ gem 'spring',        group: :development
 
 # Use faker gem
 gem 'faker'
+
+# Use image resizing gem
+# gem "rmagick", "~> 2.12.0"
+
