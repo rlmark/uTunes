@@ -4,6 +4,11 @@ class ProductsController < ApplicationController
     @products = Product.all.sort_by{|product| product.album_name}
   end
 
+  def show
+    @categories = Category.all
+    @product = Product.find(params[:id])
+  end
+
   def new
 
   end

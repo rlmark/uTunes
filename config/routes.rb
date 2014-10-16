@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "/products/index", to: "products#index"
   get "/merchants/index", to: "merchants#index", as: :merchants_list
   get "/categories_products/index", to: "categories_products#index"
+  get "/product/:id", to: "products#show", as: :product
 
   get "/sessions/new", to: "sessions#new"
   post "/sessions", to: "sessions#create"
