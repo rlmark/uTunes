@@ -2,8 +2,33 @@
   <%= render "/sessions/category_list" %>
 </div>
 
+<img src="<%= @product.image %>" alt="<%= @product.album_name %>" />
 
-<%= @product.album_name %>
-<%= @product.artist %>
-<%= @product.price %>
-<%= @product.description %>
+<p>
+  Album name: <%= @product.album_name %>
+</p>
+
+<p>
+  Artist: <%= @product.artist %>
+</p>
+
+<p>
+  Price: <%= @product.price %>
+</p>
+
+<p>
+  Description: <%= @product.description %>
+</p>
+
+
+  Categories:
+<% @product.categories.each do |category|%>
+  <p><%= category.name %></p>
+<% end  %>
+
+
+
+<% @ratings.each do |rating| %>
+  <p>Stars: <%= rating.stars %></p>
+  <p>Comment: <%= rating.comments %></p>
+<% end  %>
