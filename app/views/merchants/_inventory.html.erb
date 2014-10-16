@@ -5,7 +5,10 @@
       <li><%=link_to "Asc", "/dashboard?thing=artist&direction=asc"%></li>
       <li><%=link_to "Desc", "/dashboard?thing=artist&direction=desc"%></li>
     </ul></th>
-    <th>Album<ul><li>Asc</li><li>Desc</li></ul></th>
+    <th>Album<ul>
+      <li><%= link_to "Asc", "/dashboard?thing=album_name&direction=asc" %></li>
+      <li><%= link_to "Desc", "/dashboard?thing=album_name&direction=desc" %></li>
+    </ul></th>
     <th>Price<ul><li>Asc</li><li>Desc</li></ul></th>
     <th>Stock<ul><li>Asc</li><li>Desc</li></ul></th>
     <th>Edit/Delete options</th>

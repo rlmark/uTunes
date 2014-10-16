@@ -8,7 +8,6 @@ class MerchantsController < ApplicationController
   end
 
   def create
-
     @merchant = Merchant.new(params.require(:merchant).permit(:name, :email, :username, :password))
     if @merchant.save
       redirect_to root_path
