@@ -1,0 +1,28 @@
+<table> <!-- need a bool for display_in_shop -->
+  <tr>
+    <th>Image</th>
+    <th>Artist<ul>
+      <li><%=link_to "Asc", "/dashboard?thing=artist&direction=asc"%></li>
+      <li><%=link_to "Desc", "/dashboard?thing=artist&direction=desc"%></li>
+    </ul></th>
+    <th>Album<ul><li>Asc</li><li>Desc</li></ul></th>
+    <th>Price<ul><li>Asc</li><li>Desc</li></ul></th>
+    <th>Stock<ul><li>Asc</li><li>Desc</li></ul></th>
+    <th>Edit/Delete options</th>
+  </tr>
+   <% @products.each do |product| %>
+      <tr>
+      <td><img src=<%=product.image%> width="50"/></td>
+      <td><%=product.artist%></td>
+      <td><%=product.album_name%></td>
+      <td><%=product.price%></td>
+      <td><%=product.stock%></td>
+      <td>
+        <ul>
+          <li>Edit</li>
+          <li>Delete</li>
+        </ul>
+      </td>
+      </tr>
+    <% end %>
+</table>
