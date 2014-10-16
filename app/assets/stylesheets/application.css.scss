@@ -17,18 +17,20 @@
 
 
  #main_nav_bar {
-   display: block;
+
    background-color: #00ff00;
    margin: 0;
    padding: 0;
 
    ul {
+     display: block;
      list-style-type: none;
      padding: 10px;
      margin: none;
    }
 
    li {
-
+     display: inline-block;
+     margin-left: 10px;
    }
  }
