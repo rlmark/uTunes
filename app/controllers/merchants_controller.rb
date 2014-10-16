@@ -8,7 +8,6 @@ class MerchantsController < ApplicationController
   end
 
   def create
-
     @merchant = Merchant.new(params.require(:merchant).permit(:name, :email, :username, :password))
     if @merchant.save
       redirect_to root_path
@@ -40,6 +39,7 @@ class MerchantsController < ApplicationController
     params[:thing] ||= :id
     params[:direction] ||= :asc
     @products = @merchant_dash.products.order(params[:thing].to_sym => params[:direction].to_sym)
+
   end
 
 

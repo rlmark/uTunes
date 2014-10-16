@@ -1,7 +1,13 @@
 class SessionsController < ApplicationController
 
   def new
+    @categories = Category.all
+    if params[:category]
 
+      @products = Category.find(params[:category]).products.order(album_name: :asc)
+    else
+      @products = Product.all.order(album_name: :asc)
+    end
   end
 
   def create
@@ -19,20 +25,7 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  # def create
-  #   @vendor = Vendor.find_by username: params[:vendor][:username], password: params[:vendor][:password]
-  #   if @vendor == nil
-  #     redirect_to root_path
-  #   else
-  #     session[:vendor_id] = @vendor.id
-  #     redirect_to "/vendors/profile"
-  #   end
-  # end
 
-  # def delete
-  #   session[:vendor_id] = nil
-  #   redirect_to root_path
-  # end
 
 
 end

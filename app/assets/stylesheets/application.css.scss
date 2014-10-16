@@ -34,3 +34,27 @@
      margin-left: 10px;
    }
  }
+
+ .category_side_bar {
+   display: block;
+   border: solid green;
+   width: 15%;
+   float: left;
+
+   ul {
+
+   }
+
+   li {
+     list-style-type: none;
+   }
+
+ }
+
+ #product_display {
+   display: block;
+   border: solid blue;
+   width: 80%;
+   float: right;
+
+ }
