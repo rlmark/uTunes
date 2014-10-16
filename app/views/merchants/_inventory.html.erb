@@ -8,7 +8,7 @@
     <th>Album<ul><li>Asc</li><li>Desc</li></ul></th>
     <th>Price<ul><li>Asc</li><li>Desc</li></ul></th>
     <th>Stock<ul><li>Asc</li><li>Desc</li></ul></th>
-    <th>Edit/Delete options</th>
+    <th>Edit/Delete</th>
   </tr>
    <% @products.each do |product| %>
       <tr>
@@ -19,7 +19,7 @@
       <td><%=product.stock%></td>
       <td>
         <ul>
-          <li>Edit</li>
+          <li><%=link_to "Edit", edit_product_path(product) %></li>
           <li>Delete</li>
         </ul>
       </td>
