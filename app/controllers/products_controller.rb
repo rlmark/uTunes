@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   def show
     @categories = Category.all
     @product = Product.find(params[:id])
+    @ratings = @product.ratings
   end
 
   def new
@@ -16,7 +17,7 @@ class ProductsController < ApplicationController
   def create
 
   end
-  
+
   def edit
     @product = Product.find(params[:id])
   end
