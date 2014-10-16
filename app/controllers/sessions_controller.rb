@@ -2,8 +2,12 @@ class SessionsController < ApplicationController
 
   def new
     @categories = Category.all
-    @products = Product.all
+    if params[:category]
 
+      @products = Category.find(params[:category]).products.order(album_name: :asc)
+    else
+      @products = Product.all.order(album_name: :asc)
+    end
   end
 
   def create
