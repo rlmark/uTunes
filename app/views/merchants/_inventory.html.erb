@@ -1,4 +1,4 @@
-<table>
+<table> <!-- need a bool for display_in_shop -->
   <tr>
     <th>Image</th>
     <th>Artist</th>
@@ -7,9 +7,19 @@
     <th>Stock</th>
     <th>Edit/Delete options</th>
   </tr>
-  <%= @Product.each do |product| %>
+   <% @merchant_dash.products.each do |product| %>
       <tr>
-      <td>product.
-  
-
+      <td><img src=<%=product.image%> width="50"/></td>
+      <td><%=product.artist%></td>
+      <td><%=product.album_name%></td>
+      <td><%=product.price%></td>
+      <td><%=product.stock%></td>
+      <td>
+        <ul>
+          <li>Edit</li>
+          <li>Delete</li>
+        </ul>
+      </td>
+      </tr>
+    <% end %>
 </table>
