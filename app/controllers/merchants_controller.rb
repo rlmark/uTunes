@@ -24,5 +24,10 @@ class MerchantsController < ApplicationController
 
   end
 
+  def dashboard
+    #raise session[:merchant_id].inspect
+    @merchant_dash = Merchant.find(session[:merchant_id])
+  end
+
 
 end
