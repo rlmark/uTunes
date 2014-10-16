@@ -5,9 +5,7 @@ class MerchantsController < ApplicationController
   end
 
   def new
-
   end
-
 
   def create
 
@@ -19,9 +17,21 @@ class MerchantsController < ApplicationController
     end
   end
 
-
   def total_revenue
 
+  end
+
+  def edit
+    @merchant = Merchant.find(session[:merchant_id])
+  end
+
+  def update
+    @merchant = Merchant.find(session[:merchant_id])
+    if @merchant.update(params.require(:merchant).permit(:name, :email, :username, :password))
+      redirect_to dashboard_path
+    else
+      render :edit_merchant
+    end
   end
 
   def dashboard
