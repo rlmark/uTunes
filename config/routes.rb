@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/sessions/new", to: "sessions#new"
   post "/sessions", to: "sessions#create"
   delete "/sessions", to: "sessions#delete"
+  get "/sessions/checkout", to: "sessions#checkout", as: :checkout
 
   get "/merchants/new", to: "merchants#new"
   post "/merchants/create", to: "merchants#create"
@@ -21,6 +22,9 @@ Rails.application.routes.draw do
   get "/products/edit/:id", to: "products#edit", as: :edit_product
   put "/products/:id", to: "products#update", as: :update_product
   get "/products/destroy/:id", to: "products#destroy", as: :delete_product
+
+  get "/checkout", to: "carts#checkout"
+  get "/empty_cart", to: "carts#empty_cart"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
