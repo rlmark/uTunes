@@ -15,6 +15,7 @@
   <li><% product.categories.each do |category|%>
     <%= category.name %>
     <% end %></li>
+    <li><%= link_to "Order Item","/sessions/new?product_id=#{product.id}"%> </li>
 </ul>
 <% end %>
 </div>

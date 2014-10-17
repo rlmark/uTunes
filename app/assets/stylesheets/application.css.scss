@@ -32,6 +32,7 @@
    li {
      display: inline-block;
      margin-left: 10px;
+
    }
  }
 
@@ -56,5 +57,16 @@
    border: solid blue;
    width: 80%;
    float: right;
+
+ }
+
+#cart {
+   display: inline-block;
+   border: solid #ba1cbf;
+   background-color: #c4b8cb;
+   width: auto;
+   height: auto;
+   float: right;
+
 
  }
