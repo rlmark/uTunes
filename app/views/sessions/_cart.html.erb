@@ -41,6 +41,8 @@
     <td></td>
     <td></td>
     <td></td>
-    <td><%= @cart_total %></td>
+    <td><%= "#{number_to_currency(@cart_total/100.0)}" %></td>
   </tr>
 </table>
+
+<%= link_to "Check Out", "/check_out" %>

@@ -8,10 +8,13 @@ class SessionsController < ApplicationController
     end
 
     @categories = Category.all
+
     if session[:cart_id] == nil
       @ordered_items = []
+      @cart_total = 0.0
     else
       @ordered_items = Cart.find(session[:cart_id]).ordered_items
+      @cart_total = total_cart(session[:cart_id])
     end
 
     if params[:category]
@@ -20,13 +23,17 @@ class SessionsController < ApplicationController
       @products = Product.all.order(album_name: :asc)
     end
 
+
+
     if params[:product_id]
       # still need to close cart and change status to paid etc. so far can only
       # add to the cart
 
       if session[:cart_id] == nil
         session[:cart_id] = Cart.create(status: "open").id
+        @cart_total = 0.0
       end
+
       if OrderedItem.exists?(cart_id: session[:cart_id], product_id: params[:product_id])
         purchase = OrderedItem.find_by(cart_id: session[:cart_id], product_id: params[:product_id])
         purchase.quantity += 1
@@ -37,8 +44,6 @@ class SessionsController < ApplicationController
       end
       @ordered_items = Cart.find(session[:cart_id]).ordered_items
       @cart_total = total_cart(session[:cart_id])
-
-
     end
 
   end
@@ -58,8 +63,8 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  def checkout
-    redirect_to checkout
+  def check_out
+    redirect_to check_out
   end
 
 

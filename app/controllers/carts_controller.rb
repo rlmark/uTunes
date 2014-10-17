@@ -3,7 +3,7 @@ class CartsController < ApplicationController
   def index
   end
 
-  def checkout
+  def check_out
 
   # fetch user information
   end
