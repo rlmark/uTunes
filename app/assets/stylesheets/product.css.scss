@@ -16,7 +16,6 @@
     margin-bottom: 0;
     overflow: hidden;
 
-
   }
 
   li {
@@ -28,4 +27,93 @@
 
   }
 
+}
+
+// The entire product block
+.product {
+  display:inline-block;
+  margin: 10px;
+  position: relative;
+}
+
+// The product image
+.product_image {
+  height: 200px;
+  width: 200px;
+}
+
+// The floating textbox
+.inner_text {
+  background-color: #FF2878;
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  margin: 10px;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+// The product headers
+.inner_text h4, h5 {
+  margin: 5% 5%;
+}
+
+// The plus button
+.readmore {
+  width: 20%;
+  height: 20%;
+  margin-left: 40%;
+  margin-top: 10%;
+  visibility: hidden;
+}
+
+// The animation for the readmore button
+.fadeIn{
+	animation-name: fadeIn;
+	-webkit-animation-name: fadeIn;
+
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+
+	animation-timing-function: ease-in-out;
+	-webkit-animation-timing-function: ease-in-out;
+
+	visibility: visible !important;
+}
+
+@keyframes fadeIn {
+	0% {
+		transform: scale(0);
+		opacity: 0.0;
+	}
+	60% {
+		transform: scale(1.1);
+	}
+	80% {
+		transform: scale(0.9);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	0% {
+		-webkit-transform: scale(0);
+		opacity: 0.0;
+	}
+	60% {
+		-webkit-transform: scale(1.1);
+	}
+	80% {
+		-webkit-transform: scale(0.9);
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: scale(1);
+		opacity: 1;
+	}
 }

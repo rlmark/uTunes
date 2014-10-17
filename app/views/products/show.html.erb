@@ -27,6 +27,10 @@
 <% end  %>
 
 <% @ratings.each do |rating| %>
-  <p>Stars: <%= rating.stars %></p>
+  <p>Stars: <%= "*" *rating.stars %></p>
   <p>Comment: <%= rating.comments %></p>
 <% end  %>
+
+<p>
+  Add to cart
+</p>
