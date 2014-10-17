@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "/product/:id", to: "products#show", as: :product
 
   get "/sessions/new", to: "sessions#new"
+  post "/sessions/new", to: "sessions#new"
+  
   post "/sessions", to: "sessions#create"
   delete "/sessions", to: "sessions#delete"
 

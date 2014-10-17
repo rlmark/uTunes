@@ -44,7 +44,10 @@ class SessionsController < ApplicationController
       end
       @ordered_items = Cart.find(session[:cart_id]).ordered_items
       @cart_total = total_cart(session[:cart_id])
+      redirect_to root_path
     end
+
+
 
   end
 
