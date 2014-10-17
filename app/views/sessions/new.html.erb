@@ -4,15 +4,18 @@
   <label for="merchant_username">Username:</label>
   <input type="string" name="merchant[username]" value = "<%= @merchant.username%>"/>
   <label for="merchant_password">Password:</label>
-  <input type="password" name="merchant[password]" value = "<%= @merchant.password %>"/>
+  <input type="password" name="merchant[password]" />
   <input type="submit" value="Sign In" class="submit"/>
 </form>
 
 <%= link_to "Create New Merchant", "/merchants/new" %>
 
+<% if session[:cart_id] != nil %>
 <div id="cart">
   <%= render "cart" %>
 </div>
+<% end %>
+
 <div class="category_side_bar">
   <%= render "category_list" %>
 </div>

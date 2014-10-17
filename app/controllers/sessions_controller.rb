@@ -8,7 +8,11 @@ class SessionsController < ApplicationController
     end
 
     @categories = Category.all
-    @ordered_items = []
+    if session[:cart_id] == nil
+      @ordered_items = []
+    else
+      @ordered_items = Cart.find(session[:cart_id]).ordered_items
+    end
 
     if params[:category]
       @products = Category.find(params[:category]).products.order(album_name: :asc)
@@ -17,15 +21,8 @@ class SessionsController < ApplicationController
     end
 
     if params[:product_id]
-      #check if purchase is in cart then add quantity
-      # else create ordered item and add to cart
-      # create_table "ordered_items", force: true do |t|
-      #   t.integer  "quantity"
-      #   t.integer  "product_id"
-      #   t.datetime "created_at"
-      #   t.datetime "updated_at"
-      #   t.integer  "cart_id"
-      # end
+      # still need to close cart and change status to paid etc. so far can only
+      # add to the cart
 
       if session[:cart_id] == nil
         session[:cart_id] = Cart.create(status: "open").id
@@ -39,6 +36,8 @@ class SessionsController < ApplicationController
             cart_id: session[:cart_id], status: "pending")
       end
       @ordered_items = Cart.find(session[:cart_id]).ordered_items
+      @cart_total = total_cart(session[:cart_id])
+
 
     end
 
@@ -59,7 +58,21 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  def checkout
+    redirect_to checkout
+  end
 
 
 
+
+end
+
+def total_cart(cart_id)
+
+  total = 0
+  Cart.find(cart_id).ordered_items.each do |item|
+    price = Product.find(item.product_id).price
+    total = total + price * item.quantity
+  end
+  return total
 end
