@@ -1,3 +1,8 @@
-<p>
-  Items placed in cart will go here. 
-</p>
+
+<h2>Shopping Cart</h2>
+
+<ul>
+  <% @ordered_items.each do |item| %>
+    <li><%= "#{Product.find(item.product_id).album_name} / Quantity Ordered = #{item.quantity}" %></li>
+    <% end%>
+</ul>

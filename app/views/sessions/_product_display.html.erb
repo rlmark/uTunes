@@ -1,21 +1,4 @@
-<!-- <div class="scroll_products">
 
-<%# @products.each do |product|%>
-
-<ul>
-  <img id = "product_avatar" src=<%#= product.image %>  alt="product photo" height = 100px width = 100px/>
-  <li><strong><%#= link_to product.album_name, product_path(:id => product.id)%></strong></li>
-  <li><%#= product.artist %></li>
-  <li><%#= product.description %></li>
-  <li><%#= "#{number_to_currency(product.price/100.0)}" %></li>
-  <li><%#= "Sold by: #{Merchant.find(product.merchant_id).name}" %></li>
-  <li><%#= "Number in stock: #{product.stock}" %></li>
-  <li><%# product.categories.each do |category|%>
-    <%#= category.name %>
-    <%# end %></li>
-</ul>
-<%# end %>
-</div> -->
 
 <div class="scroll_products">
   <% @products.each do |product| %>
@@ -28,19 +11,7 @@
           <%= image_tag("readmore.png", :class => "readmore") %>
         </div>
       </div>
+      <%= link_to "Order Item","/sessions/new?product_id=#{product.id}"%>
     <% end %>
   </a>
 </div>
-
-
-
-<!-- <div class="productwrapper">
-  <div class="product" id="pink_floyd">
-    <img class="albumcover" src="http://images.publicradio.org/content/2013/05/08/20130508_favorite_album_covers_91.jpg" alt="Pink Floyd">
-    <div class="title">
-      <h3>Pink Floyd</h3>
-      <h4>Dark Side of the Moon</h4>
-      <img src="readmore.png" alt="Read More" class="readmore"/>
-    </div>
-  </div>
-</div> -->

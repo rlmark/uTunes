@@ -2,15 +2,17 @@
 
 <form action="/sessions" method="post">
   <label for="merchant_username">Username:</label>
-  <input type="string" name="merchant[username]"/>
+  <input type="string" name="merchant[username]" value = "<%= @merchant.username%>"/>
   <label for="merchant_password">Password:</label>
-  <input type="password" name="merchant[password]"/>
+  <input type="password" name="merchant[password]" value = "<%= @merchant.password %>"/>
   <input type="submit" value="Sign In" class="submit"/>
 </form>
 
 <%= link_to "Create New Merchant", "/merchants/new" %>
 
-
+<div id="cart">
+  <%= render "cart" %>
+</div>
 <div class="category_side_bar">
   <%= render "category_list" %>
 </div>

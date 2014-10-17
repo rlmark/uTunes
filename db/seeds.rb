@@ -6,6 +6,7 @@
 (1..100).each do
   name = Faker::Commerce.product_name
   product = {
+    active: true,
     artist: Faker::Name.name,
     album_name: name + " album",
     stock: rand(0..10),
