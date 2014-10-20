@@ -11,11 +11,18 @@ class ProductsController < ApplicationController
   end
 
   def new
-
+    @product = Product.new
   end
 
+  # Creates a new product in the database
   def create
-
+    merchant = Merchant.find(session[:merchant_id])
+    @product = merchant.products.new(params.require(:product).permit(:artist, :album_name, :image, :stock, :price, :status))
+    if @product.save
+      redirect_to dashboard_path
+    else
+      render :new
+    end
   end
 
   def edit
