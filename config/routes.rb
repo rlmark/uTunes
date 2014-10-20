@@ -23,14 +23,15 @@ Rails.application.routes.draw do
   get "merchant/:id/edit", to: "merchants#edit", as: :edit_merchant
   # Updates the merchant profile info from form
   put "/merchant", to: "merchants#update"
+
   # Gets the add product page
   get "/products/new", to: "products#new", as: :new_products
   # Adds the newly created product to database
   post "/products/create", to: "products#create", as: :create_products
-
+  # Edits a preexisting product
   get "/products/edit/:id", to: "products#edit", as: :edit_product
   put "/products/:id", to: "products#update", as: :update_product
-  get "/products/destroy/:id", to: "products#destroy", as: :delete_product
+  delete "/products/delete/:id", to: "products#delete", as: :delete_product
 
   get "/check_out", to: "carts#check_out", as: :check_out
   get "/empty_cart", to: "carts#empty_cart"

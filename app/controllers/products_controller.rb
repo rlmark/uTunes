@@ -46,14 +46,15 @@ class ProductsController < ApplicationController
 
   end
 
-  # Reture might be useful for temporary retirement
+  # Retire might be useful for temporary retirement
   def retire
 
   end
 
   # Delete is for no longer selling the product
   def delete
-
+    Product.destroy(params[:id])
+    redirect_to dashboard_path
   end
 
 end
