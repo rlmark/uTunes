@@ -1,0 +1,38 @@
+<!-- This is the form to create new products -->
+
+<form class="new_entry" action="/products/create"  method="post" >
+
+  <h1>Add New Products</h1>
+
+  <div>
+    <label for="album_name">Album name </label>
+    <input type="text" name="product[album_name]" %>
+  </div>
+  <div>
+    <label for="artist">Artist name </label>
+    <input type="text" name="product[artist]" %>
+  </div>
+  <div>
+    <label for="image">Album photo url </label>
+    <input type="text" name="product[image]" %>
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <input type="text" name="product[description]" %>
+  </div>
+  <div>
+    <label for="stock">Number in stock </label>
+    <input type="text" name="product[stock]" %>
+  </div>
+  <div>
+    <label for="price">Price </label>
+    <input type="text" name="product[price]" %>
+  </div>
+  <div>
+    <label for="active">Active </label>
+    <input type="text" name="product[active]" %>
+  </div>
+
+  <input type = "submit" value="Add product" class="submit">
+
+</form>

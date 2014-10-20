@@ -1,7 +1,8 @@
 <h1>Dashboard</h1>
 
 <div class="products">
-  <h2><%= render "inventory" %></h2>
+  <%= link_to "Add new products", new_products_path %>
+  <%= render "inventory" %>
 </div>
 
 <div class="edit_profile">
