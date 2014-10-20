@@ -1,24 +1,13 @@
-<!-- in sort thing, do a link_to to the edit page and carry the product id as a param -->
 
-<form action="<%=update_product_path(@product)%>" method="POST">
-  <input type="hidden" name="_method" value="PUT">
-  
-  <label for="artist">Artist:</label>
-  <input type="text" name="product[artist]" value="<%=@product.artist%>"/>
-  
-  <label for="album_name">Album Name:</label>
-  <input type="text" name="product[album_name]"value="<%=@product.album_name%>"/>
+<%= form_for @product do |product_form| %>
+  Artist: <%= product_form.text_field :artist %>
+  Album: <%= product_form.text_field :album_name %>
+  Image URL: <%= product_form.text_field :image %>
+  Stock: <%= product_form.number_field :stock %>
+  Price: <%= product_form.number_field :price %>
+  Active: <%= product_form.check_box :active %>
+  <%= product_form.submit %>  
 
-  <label for="image">Image URL:</label>
-  <input type="text" name="product[image]" value="<%=@product.image%>"/>
+<% end %>
 
-  <label for="stock">Stock:</label>
-  <input type="integer" name="product[stock]" value="<%=@product.stock%>"/>
-
-  <label for="Price"> Price:</label>
-  <input type="integer" name="product[price]" value="<%=@product.price%>"/>
-  <!-- need to show price in dollars -->
-<br>
-<input type="submit" value="Submit Changes" class="submit"%> 
-<form>
-
+<form method="POST" action="<%=update_product_path(@product)%>">

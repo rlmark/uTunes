@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    if @product.update(params.require(:product).permit(:artist, :album_name, :image, :stock, :price))
+    if @product.update(params.require(:product).permit(:artist, :album_name, :image, :active, :stock, :price))
     redirect_to dashboard_path
     else
     render :edit_product

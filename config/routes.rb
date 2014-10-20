@@ -30,8 +30,10 @@ Rails.application.routes.draw do
   post "/products/create", to: "products#create", as: :create_products
   # Edits a preexisting product
   get "/products/edit/:id", to: "products#edit", as: :edit_product
-  put "/products/:id", to: "products#update", as: :update_product
+  
   delete "/products/delete/:id", to: "products#delete", as: :delete_product
+  #singular for form builder thing
+  patch "/product/:id", to: "products#update", as: :update_product
 
   get "/check_out", to: "carts#check_out", as: :check_out
   get "/empty_cart", to: "carts#empty_cart"
@@ -41,6 +43,8 @@ Rails.application.routes.draw do
 
   # Add items to cart
   post "/carts/add_item", to: "carts#add_item", as: :add_item
+
+  # resources :product
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
