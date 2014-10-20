@@ -17,7 +17,8 @@
       <li><%= link_to "Asc", "/dashboard?thing=stock&direction=asc" %></li>
       <li><%= link_to "Desc", "/dashboard?thing=stock&direction=desc" %></li>
       </ul></th>
-    <th>Edit/Delete</th>
+    <th>Active</th>
+    <th>Edit</th>
   </tr>
    <% @products.each do |product| %>
       <tr>
@@ -26,11 +27,14 @@
       <td><%=product.album_name%></td>
       <td><%="#{number_to_currency(product.price/100.0)}"%></td>
       <td><%=product.stock%></td>
+      <td><% if product.active %>
+            <%= "Yes" %>
+          <% else %>
+            <%= "No" %>
+          <% end %>
+      </td>
       <td>
-        <ul>
           <li><%=link_to "Edit", edit_product_path(product) %></li>
-          <li>Delete</li>
-        </ul>
       </td>
       </tr>
     <% end %>
