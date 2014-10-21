@@ -31,6 +31,9 @@
   <p>Comment: <%= rating.comments %></p>
 <% end  %>
 
+<% if @product.merchant_id != session[:merchant_id ] %>
+  <%= link_to "Review product", new_rating_path(@product.id) %>
+<% end %>
 <p>
   Add to cart
 </p>
