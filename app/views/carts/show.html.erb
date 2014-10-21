@@ -3,7 +3,7 @@
 
 
 
-<table>
+<table id="cart">
 
   <tr>
     <th>
@@ -20,6 +20,7 @@
     </th>
   </tr>
   <% @ordered_items.each do |item| %>
+  <% if item.status = "pending" %>
   <tr>
     <td>
       <%= "#{Product.find(item.product_id).album_name}" %>
@@ -28,12 +29,23 @@
       <%= "#{number_to_currency(Product.find(item.product_id).price/100.0)}" %>
     </td>
     <td>
+  <%= form_for item do |f| %>
+    <%= f.hidden_field :item_id, value: item.id %>
+    <%= f.number_field :quantity %>
+    <%= f.submit %>
+  <% end %>
+    </td>
+    <td>
+      <%= button_to "Delete", delete_ordered_item_path(item.id),  method: :delete %>
+    </td>
+    <td>
       <%= "#{item.quantity}" %>
     </td>
     <td>
       <%= "#{number_to_currency(Product.find(item.product_id).price * item.quantity/100.0)}" %>
     </td>
   </tr>
+  <% end %>
 
 
   <% end%>

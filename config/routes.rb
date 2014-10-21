@@ -46,6 +46,13 @@ Rails.application.routes.draw do
   # Add items to cart
   post "/carts/add_item", to: "carts#add_item", as: :add_item
 
+  # Change quantity of ordered item on show cart page
+  patch "/ordered_item/:id", to: "ordered_items#update_quantity", as: :ordered_item
+
+  # Delete an item from a cart
+  delete "/ordered_item/:id", to: "ordered_items#delete_ordered_item", as: :delete_ordered_item
+
+
   # resources :product
 
   # The priority is based upon order of creation: first created -> highest priority.
