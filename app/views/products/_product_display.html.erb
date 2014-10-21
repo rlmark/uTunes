@@ -42,8 +42,7 @@
           <%= image_tag("readmore.png", :class => "readmore") %>
         </div>
       </div>
-      <%= link_to "Order Item","/carts/add_item?product_id=#{product.id}"%>
-      <%= button_to "Order Item","/carts/add_item?product_id=#{product.id}", method: :post %>
-    <% end %>
   </a>
+  <%= button_to "Order Item","/carts/add_item?product_id=#{product.id}", method: :post %>
+  <% end %>
 </div>

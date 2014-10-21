@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
 
     @categories = Category.all
 
-
     if params[:category]
       @products = Category.find(params[:category]).products.order(album_name: :asc)
     else
