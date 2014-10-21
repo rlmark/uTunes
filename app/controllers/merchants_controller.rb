@@ -42,7 +42,8 @@ class MerchantsController < ApplicationController
 
   def orders
     merchant = Merchant.find(session[:merchant_id])
-    @orders = OrderedItem.where 
+    @ordered_items = merchant.ordered_items
+    # merchant.find_by(status pending)
   end
 
   def total_revenue
