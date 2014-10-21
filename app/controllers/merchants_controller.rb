@@ -18,10 +18,6 @@ class MerchantsController < ApplicationController
     end
   end
 
-  def total_revenue
-
-  end
-
   def edit
     @merchant = Merchant.find(session[:merchant_id])
   end
@@ -44,6 +40,14 @@ class MerchantsController < ApplicationController
 
   end
 
+  def orders
+    merchant = Merchant.find(session[:merchant_id])
+    @orders = OrderedItem.where 
+  end
+
+  def total_revenue
+
+  end
 
 
 end
