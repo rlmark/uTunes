@@ -33,6 +33,12 @@ Rails.application.routes.draw do
   # Edits a preexisting product
   get "/products/edit/:id", to: "products#edit", as: :edit_product
 
+  get "/categories/new", to: "categories#new", as: :new_categories
+  post "/category/create", to: "categories#create", as: :categories
+
+  get "/categories_products/new/:id", to: "categories_products#new", as: :add_category
+  post "/categories_product/create", to: "categories_products#create", as: :categories_products
+
   delete "/products/delete/:id", to: "products#delete", as: :delete_product
   #singular for form builder thing
   patch "/product/:id", to: "products#update", as: :update_product

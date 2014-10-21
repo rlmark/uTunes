@@ -37,6 +37,7 @@
         <ul>
           <li><%=link_to "Edit", edit_product_path(product) %></li>
           <li><%= button_to "Delete", delete_product_path(product), :method=>:delete %></li>
+          <li><%=link_to "Categories", add_category_path(product) %></li>
         </ul>
       </td>
       </tr>

@@ -1,0 +1,12 @@
+<h1>Associated categories</h1>
+<ul>
+<% @product.categories.each do |thing| %>
+  <li><%= thing.name %></li>
+<% end %>
+</ul>
+<%= form_tag "/categories_products/create/" do %>
+<% hidden_field_tag :product_id, params[:id] %> <!-- can use params[:id] -->
+<% all_categories = @categories.collect{|object| [object.name, object.id]} %>
+<%= select_tag(:category_id, options_for_select(all_categories), multiple: true) %>
+<%= submit_tag %>
+<% end %>
