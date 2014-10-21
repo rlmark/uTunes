@@ -20,11 +20,14 @@ Rails.application.routes.draw do
   root "sessions#new"
 
   # DASHBOARD ROUTES
+  # Displays entire dashboard page
   get "/dashboard", to: "merchants#dashboard", as: :dashboard
+  # Takes you to the order summary page
+  get "/orders", to: "merchants#orders", as: :orders
+  # Takes you to the edit merchant form
   get "merchant/:id/edit", to: "merchants#edit", as: :edit_merchant
   # Updates the merchant profile info from form
   put "/merchant", to: "merchants#update"
-
   # Gets the "add a new product" page
   get "/products/new", to: "products#new", as: :new_products
   # Adds the newly created product to database
