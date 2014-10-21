@@ -1,5 +1,15 @@
 <!-- This is the form to create new products -->
 
+<div class="error"><!-- This pops up if validations fail -->
+    <ul>
+    <% @product.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
 <form class="new_entry" action="/products/create"  method="post" >
 
   <h1>Add New Products</h1>

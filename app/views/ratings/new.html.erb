@@ -1,3 +1,13 @@
+<div class="error"><!-- This pops up if validations fail -->
+    <ul>
+    <% @rating.errors.each do |column, message| %>
+      <li>
+        <strong><%= column.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
 <%= form_for @rating do |f| %>
   <%= f.hidden_field :product_id, value: params[:id] %>
   Stars: <%= f.number_field :stars %>
@@ -13,11 +23,11 @@
 <div>
   <label for="stars">Stars</label>
   <input type="text" name="rating[stars]"%>
-  
+
   <label for="comments">Comments</label>
   <input type="textarea" name="rating[comments]"%>
 </div>
-  
+
 <input type="submit" value="Create review" class="submit">
 
 </form>-->
