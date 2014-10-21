@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   post "/sessions", to: "sessions#create"
   delete "/sessions", to: "sessions#delete"
 
-
   get "/merchants/new", to: "merchants#new"
   post "/merchants/create", to: "merchants#create"
 
@@ -24,13 +23,13 @@ Rails.application.routes.draw do
   # Updates the merchant profile info from form
   put "/merchant", to: "merchants#update"
 
-  # Gets the add product page
+  # Gets the add a new product page
   get "/products/new", to: "products#new", as: :new_products
   # Adds the newly created product to database
   post "/products/create", to: "products#create", as: :create_products
   # Edits a preexisting product
   get "/products/edit/:id", to: "products#edit", as: :edit_product
-  
+
   delete "/products/delete/:id", to: "products#delete", as: :delete_product
   #singular for form builder thing
   patch "/product/:id", to: "products#update", as: :update_product
