@@ -21,6 +21,7 @@ class CartsController < ApplicationController
 
   # Putting items in cart
   def add_item
+
     if params[:product_id]
       # still need to close cart and change status to paid etc. so far can only
       # add to the cart
@@ -30,10 +31,11 @@ class CartsController < ApplicationController
         @cart_total = 0.0
       end
 
-      if OrderedItem.exists?(cart_id: session[:cart_id], product_id: params[:product_id])
-        purchase = OrderedItem.find_by(cart_id: session[:cart_id], product_id: params[:product_id])
-        purchase.quantity += 1
-        purchase.save
+      ordered_item = OrderedItem.find_by(cart_id: session[:cart_id], product_id: params[:product_id], status: "pending")
+
+      if ordered_item != nil
+        ordered_item.quantity += 1
+        ordered_item.save
       else
         OrderedItem.create(product_id: params[:product_id], quantity: 1,
             cart_id: session[:cart_id], status: "pending")
