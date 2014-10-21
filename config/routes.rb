@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   post "/sessions", to: "sessions#create"
   delete "/sessions", to: "sessions#delete"
 
-  get "/merchants/new", to: "merchants#new"
-  post "/merchants/create/:id", to: "merchants#create"
+  get "/merchants/new", to: "merchants#new", as: :new_merchant
+  post "/merchants/create", to: "merchants#create"
 
   get "/ratings/:id/new", to: "ratings#new", as: :new_rating
   post "/rating/create/", to: "ratings#create", as: :ratings
@@ -20,13 +20,15 @@ Rails.application.routes.draw do
   root "sessions#new"
 
   # DASHBOARD ROUTES
+  # Displays entire dashboard page
   get "/dashboard", to: "merchants#dashboard", as: :dashboard
-  #
+  # Takes you to the order summary page
+  get "/orders", to: "merchants#orders", as: :orders
+  # Takes you to the edit merchant form
   get "merchant/:id/edit", to: "merchants#edit", as: :edit_merchant
   # Updates the merchant profile info from form
   put "/merchant", to: "merchants#update"
-
-  # Gets the add a new product page
+  # Gets the "add a new product" page
   get "/products/new", to: "products#new", as: :new_products
   # Adds the newly created product to database
   post "/products/create", to: "products#create", as: :create_products

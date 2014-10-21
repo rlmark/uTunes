@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
   end
 
   # Creates a new product in the database

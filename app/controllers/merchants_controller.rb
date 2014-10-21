@@ -5,14 +5,16 @@ class MerchantsController < ApplicationController
   end
 
   def new
+    @merchant = Merchant.new
   end
 
   def create
+    @all_merchants = Merchant.all
     @merchant = Merchant.new(params.require(:merchant).permit(:name, :email, :username, :password))
     if @merchant.save
       redirect_to root_path
     else
-      render merchants_list_path  #this renders new.html.erb again
+      render new_merchant_path
     end
   end
 
