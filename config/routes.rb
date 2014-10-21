@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   delete "/sessions", to: "sessions#delete"
 
   get "/merchants/new", to: "merchants#new"
-  post "/merchants/create", to: "merchants#create"
+  post "/merchants/create/:id", to: "merchants#create"
+
+  get "/ratings/:id/new", to: "ratings#new", as: :new_rating
+  post "/rating/create/", to: "ratings#create", as: :ratings
 
   root "sessions#new"
 
