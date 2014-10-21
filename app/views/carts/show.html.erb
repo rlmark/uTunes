@@ -20,7 +20,7 @@
     </th>
   </tr>
   <% @ordered_items.each do |item| %>
-  <% if item.status = "pending" %>
+  <% if item.status == "pending" %>
   <tr>
     <td>
       <%= "#{Product.find(item.product_id).album_name}" %>

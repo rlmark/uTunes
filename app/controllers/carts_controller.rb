@@ -56,8 +56,10 @@ private
 def total_cart(cart_id)
   total = 0
   Cart.find(cart_id).ordered_items.each do |item|
+    if item.status == "pending"
     price = Product.find(item.product_id).price
     total = total + price * item.quantity
+  end
   end
   return total
 end
