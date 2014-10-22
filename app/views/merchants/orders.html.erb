@@ -10,16 +10,21 @@ A link to the item description page
 DateTime the order was placed
 Link to transition the order item to marked as shipped
 The current status of the order ("pending", "paid", "complete", "cancelled") -->
-
-<p>
-  view all
-</p>
-<p>
-  view all pending
-</p>
-<p>
-  view all ordered
-</p>
+<!-- link_to "#{category.name}", "/sessions/new?category=#{category.id}" -->
+<div class="horizontal_nav">
+  <p>
+    <%= link_to "View All", "/orders" %>
+  </p>
+  <p>
+    <%= link_to "View Pending", "/orders/?status=pending"%>
+  </p>
+  <p>
+    <%= link_to "View Paid", "/orders/?status=paid" %>
+  </p>
+  <p>
+    <%= link_to "View Cancelled", "/orders/?status=cancelled" %>
+  </p>
+</div>
 
 <table>
   <tr>
@@ -45,24 +50,23 @@ The current status of the order ("pending", "paid", "complete", "cancelled") -->
       Order ID
     </th>
   </tr>
-
-<% @ordered_items.each do |item|%>
+  <% @ordered_items.each do |item|%>
+    <tr>
+      <td><%= item.product_id %></td>
+      <td><%= item.quantity %></td>
+      <td><%= item.product.album_name %></td>
+      <td><%= item.status %></td>
+      <td><%= number_to_currency(item.product.price/100.0) %></td>
+      <td><%= item.updated_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
+      <td><%= item.cart_id %></td>
+    </tr>
+  <% end %>
   <tr>
-    <td><%= item.product_id %></td>
-    <td><%= item.quantity %></td>
-    <td><%= item.product.album_name %></td>
-    <td><%= item.status %></td>
-    <td><%= number_to_currency(item.product.price/100.0) %></td>
-    <td><%= item.updated_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
-    <td><%= item.cart.id %></td>
+    <td>
+      Total:
+    </td>
+    <td>
+      <%= number_to_currency(@revenue/100.0) %>
+    </td>
   </tr>
-<% end %>
-<tr>
-  <td>
-    Total:
-  </td>
-  <td>
-    <%= number_to_currency(@revenue/100.0) %>
-  </td>
-</tr>
 </table>
