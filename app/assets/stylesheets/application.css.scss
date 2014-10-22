@@ -14,6 +14,23 @@
  *= require_self
  */
 
+//#####################//
+// GENERAL PAGE STYLING
+//#####################//
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  font-size: 1.1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+}
 
 
  #main_nav_bar {
@@ -68,7 +85,9 @@
    height: auto;
  }
 
+//#################//
 // ERROR FORM STYLE
+//#################//
 .error {
   width: 50%;
   background-color: #EBEBEB;
