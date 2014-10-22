@@ -42,7 +42,11 @@ class MerchantsController < ApplicationController
 
   def orders
     merchant = Merchant.find(session[:merchant_id])
-    @ordered_items = merchant.ordered_items
+    if params[:status] != nil
+      @ordered_items = merchant.ordered_items.where(status: params[:status])
+    else
+      @ordered_items = merchant.ordered_items
+    end
     @revenue = total_revenue(@ordered_items)
   end
 
