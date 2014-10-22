@@ -56,7 +56,11 @@
 }
 
 // The product headers
-.product h4, h5, p {
+.product h4, h5 {
+  margin: 5% 5%;
+}
+
+.product a p{
   margin: 5% 5%;
 }
 
