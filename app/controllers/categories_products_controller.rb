@@ -21,4 +21,9 @@ class CategoriesProductsController < ApplicationController
     end
   end
 
+  def update
+    @categories_products = Categories_product.all
+      
+  end
+
 end
