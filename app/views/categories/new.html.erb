@@ -1,0 +1,12 @@
+<h1>Current categories</h1>
+
+<ul>
+<% @categories.each do |category| %>
+  <li><%= category.name %></li>
+  <% end %>
+</ul>
+
+<%= form_for @category do |f| %>
+  Name: <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>

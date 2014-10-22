@@ -18,5 +18,6 @@ class Merchant < ActiveRecord::Base
   validates :name, presence: true
 
   has_many :products
+  has_many :ordered_items, through: :products
 
 end

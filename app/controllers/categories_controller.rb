@@ -4,9 +4,17 @@ class CategoriesController < ApplicationController
   end
 
   def new
-  # create new category
+    @categories = Category.all
+    @category = Category.new
   end
 
-  
+  def create
+    @category = Category.new(params.require(:category).permit(:name))
+    if @category.save
+      redirect_to new_categories_path
+    else 
+      render new_categories_path
+    end
+  end
 
 end
