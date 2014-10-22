@@ -40,6 +40,7 @@ Rails.application.routes.draw do
 
   get "/categories_products/new/:id", to: "categories_products#new", as: :add_category
   post "/categories_product/create", to: "categories_products#create", as: :categories_products
+  post "/categories_products/update", to: "categories_products#update", as: :categories_products_update # use this to make new things on your join table
 
   delete "/products/delete/:id", to: "products#delete", as: :delete_product
   #singular for form builder thing
