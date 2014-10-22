@@ -66,7 +66,7 @@ class CartsController < ApplicationController
             cart_id: session[:cart_id], status: "pending")
       end
       @ordered_items = Cart.find(session[:cart_id]).ordered_items
-      @cart_total = total_cart(session[:cart_id])
+      @cart_total = total_cart(@ordered_items)
       redirect_to root_path
     end
   end
