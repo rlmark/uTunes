@@ -56,6 +56,7 @@ class CartsController < ApplicationController
       product = Product.find(item.product_id)
       product.stock = product.stock - item.quantity
       product.save
+      raise product.inspect
     end
     session[:cart_id] = nil
     redirect_to final_page_path
