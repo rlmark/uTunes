@@ -58,6 +58,12 @@ Rails.application.routes.draw do
   # Change quantity of ordered item on show cart page
   patch "/ordered_item/:id", to: "ordered_items#update_quantity", as: :ordered_item
 
+  # Enter customer information in cart record
+  patch "/cart/:id", to: "carts#customer_information", as: :cart
+
+  # Display all ordere information
+  get "/carts/confirmation", to: "carts#confirmation", as: :confirm_customer_information
+
   # Delete an item from a cart
   delete "/ordered_item/:id", to: "ordered_items#delete_ordered_item", as: :delete_ordered_item
 

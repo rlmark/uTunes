@@ -1,0 +1,48 @@
+<h2>Customer Review Information</h2>
+
+<div id="customer_confirmation">
+  Please review all information. Press Edit to make changes
+  and press Purchase if everything is correct.
+
+</div>
+
+<div id="customer_information">
+
+  <table>
+    <tr>
+      <td><strong>Name: </strong><%= " #{@cart.name}" %></td>
+    </tr>
+    <tr>
+      <td>
+      <strong>Address:</strong>
+    </td>
+    </tr>
+    <tr>
+
+      <td>
+        <%= @cart.address %>
+      </td>
+
+    </tr>
+    <tr>
+      <td>
+        <%= "#{@cart.city}, #{@cart.state}  #{@cart.zip}" %>
+      </td>
+    </tr>
+    <tr>
+    <td>
+      <strong>Credit Card:</strong>
+    </td>
+    </tr>
+
+    <tr>
+      <td>
+      <%= "#{@cart.credit_num}  CVV: #{@cart.credit_cvv}  Exp: #{@cart.credit_exp}" %>
+    </td>
+    </tr>
+
+  </table>
+
+</div>
+
+Put links to edit and purchase here

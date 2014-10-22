@@ -3,9 +3,11 @@ class CartsController < ApplicationController
   def index
   end
 
+  # Check out page displays cart, requests user payment information
   def check_out
-
-  # fetch user information
+    @cart = Cart.find(session[:cart_id])
+    @ordered_items = @cart.ordered_items
+    @cart_total = total_cart(@ordered_items)
   end
 
   # Function shows total ordered-items
@@ -15,8 +17,31 @@ class CartsController < ApplicationController
       @cart_total = 0.0
     else
       @ordered_items = Cart.find(session[:cart_id]).ordered_items
-      @cart_total = total_cart(session[:cart_id])
+      @cart_total = total_cart(@ordered_items)
     end
+  end
+
+  # Collect and record all customer information
+  def customer_information
+    cart = Cart.find(session[:cart_id])
+    cart.name = params[:cart][:name]
+    cart.email = params[:cart][:email]
+    cart.address = params[:cart][:address]
+    cart.city = params[:cart][:city]
+    cart.state = params[:cart][:state]
+    cart.zip = params[:cart][:zip].to_i
+    cart.credit_num = params[:cart][:credit_num].to_i
+    cart.credit_cvv = params[:cart][:credit_cvv].to_i
+    cart.credit_exp = params[:cart][:credit_exp]
+
+    cart.save
+    redirect_to confirm_customer_information_path
+
+  end
+
+  # Display all information before submitting order
+  def confirmation
+    @cart = Cart.find(session[:cart_id])
   end
 
   # Putting items in cart
@@ -55,15 +80,21 @@ end
 
 private
 
-def total_cart(cart_id)
+def total_cart(items)
   total = 0
-  Cart.find(cart_id).ordered_items.each do |item|
+  items.each do |item|
     if item.status == "pending"
     price = Product.find(item.product_id).price
     total = total + price * item.quantity
     end
   end
   return total
+end
+
+def check_stock(ordered_item)
+  ordered_item.quantity > Product.find(ordered_item.product_id).quantity
+
+
 end
 
 # def total_cart(cart_id)
