@@ -11,12 +11,23 @@ DateTime the order was placed
 Link to transition the order item to marked as shipped
 The current status of the order ("pending", "paid", "complete", "cancelled") -->
 
+<p>
+  view all
+</p>
+<p>
+  view all pending
+</p>
+<p>
+  view all ordered
+</p>
 
 <table>
-
   <tr>
     <th>
       Item ID
+    </th>
+    <th>
+      Quantity Ordered
     </th>
     <th>
       Item Name
@@ -38,11 +49,20 @@ The current status of the order ("pending", "paid", "complete", "cancelled") -->
 <% @ordered_items.each do |item|%>
   <tr>
     <td><%= item.product_id %></td>
+    <td><%= item.quantity %></td>
     <td><%= item.product.album_name %></td>
     <td><%= item.status %></td>
-    <td><%= item.product.price %></td>
+    <td><%= number_to_currency(item.product.price/100.0) %></td>
     <td><%= item.updated_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
     <td><%= item.cart.id %></td>
   </tr>
 <% end %>
+<tr>
+  <td>
+    Total:
+  </td>
+  <td>
+    <%= number_to_currency(@revenue/100.0) %>
+  </td>
+</tr>
 </table>
