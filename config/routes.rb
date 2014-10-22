@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get "/dashboard", to: "merchants#dashboard", as: :dashboard
   # Takes you to the order summary page
   get "/orders", to: "merchants#orders", as: :orders
+  # Takes you to order shipment page
+  get "/orders/:id", to: "merchants#ship", as: :ship_order
   # Takes you to the edit merchant form
   get "merchant/:id/edit", to: "merchants#edit", as: :edit_merchant
   # Updates the merchant profile info from form

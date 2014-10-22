@@ -32,7 +32,7 @@ The current status of the order ("pending", "paid", "complete", "cancelled") -->
       Item ID
     </th>
     <th>
-      Quantity Ordered
+      Quantity<br>Ordered
     </th>
     <th>
       Item Name
@@ -44,10 +44,10 @@ The current status of the order ("pending", "paid", "complete", "cancelled") -->
       Item price
     </th>
     <th>
-      Time Placed
+      Order ID
     </th>
     <th>
-      Order ID
+      Ship Order
     </th>
   </tr>
   <% @ordered_items.each do |item|%>
@@ -57,8 +57,8 @@ The current status of the order ("pending", "paid", "complete", "cancelled") -->
       <td><%= item.product.album_name %></td>
       <td><%= item.status %></td>
       <td><%= number_to_currency(item.product.price/100.0) %></td>
-      <td><%= item.updated_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
       <td><%= item.cart_id %></td>
+      <td><%= link_to "Ship Order", ship_order_path(item.cart_id) %></td>
     </tr>
   <% end %>
   <tr>

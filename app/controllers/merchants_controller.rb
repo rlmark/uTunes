@@ -50,6 +50,10 @@ class MerchantsController < ApplicationController
     @revenue = total_revenue(@ordered_items)
   end
 
+  def ship
+    @cart = Cart.find(params[:id])
+  end
+
 private
   def total_revenue(items)
     total = 0

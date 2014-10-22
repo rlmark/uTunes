@@ -1,0 +1,49 @@
+<table>
+  <tr>
+    <td>Order ID:</td>
+    <td><%= @cart.id %></td>
+  </tr>
+
+  <tr>
+    <td>Customer Name:</td>
+    <td><%= @cart.name %></td>
+  </tr>
+
+  <tr>
+    <td>Order Status: </td>
+    <td><%= @cart.status %></td>
+  </tr>
+
+  <tr>
+    <td>Time Ordered: </td>
+    <td><%= @cart.updated_at.strftime("%A, %d %b %Y %l:%M %p") %>
+</td>
+  </tr>
+
+  <tr>
+    <td>E-mail:</td>
+    <td><%= @cart.email %></td>
+  </tr>
+
+  <tr>
+    <td>Address:</td>
+    <td><%= @cart.address %></td>
+  </tr>
+
+  <tr>
+    <td>City:</td>
+    <td><%= @cart.city%></td>
+  </tr>
+
+  <tr>
+    <td>State:</td>
+    <td><%= @cart.state%></td>
+  </tr>
+
+  <tr>
+    <td>Zip:</td>
+    <td><%= @cart.zip%></td>
+  </tr>
+
+
+</table>
