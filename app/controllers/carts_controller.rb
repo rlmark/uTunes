@@ -33,7 +33,8 @@ class CartsController < ApplicationController
     cart.zip = params[:cart][:zip].to_i
     cart.credit_num = params[:cart][:credit_num].to_i
     cart.credit_cvv = params[:cart][:credit_cvv].to_i
-    cart.credit_exp = params[:cart][:credit_exp]
+    cart.month = params[:cart][:month]
+    cart.year = params[:cart][:year]
 
     cart.save
     redirect_to confirmation_path
@@ -56,8 +57,9 @@ class CartsController < ApplicationController
       product = Product.find(item.product_id)
       product.stock = product.stock - item.quantity
       product.save
-      raise product.inspect
     end
+    @cart.status = "closed"
+    @cart.save
     session[:cart_id] = nil
     redirect_to final_page_path
 

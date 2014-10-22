@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017033912) do
+ActiveRecord::Schema.define(version: 20141022201251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,9 +26,10 @@ ActiveRecord::Schema.define(version: 20141017033912) do
     t.string   "name"
     t.integer  "credit_num"
     t.integer  "credit_cvv"
-    t.string   "credit_exp"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "month"
+    t.integer  "year"
   end
 
   create_table "categories", force: true do |t|
