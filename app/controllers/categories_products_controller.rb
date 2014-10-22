@@ -8,6 +8,7 @@ class CategoriesProductsController < ApplicationController
   def new 
     @product = Product.find(params[:id])
     @categories = Category.all.to_a # need to make an array so you can do stuff below
+    # @duplicates = @products.categories.name
     @categories = @categories.delete_if{|obj| @product.categories.include?(obj)}
   end
 
@@ -22,8 +23,10 @@ class CategoriesProductsController < ApplicationController
   end
 
   def update
-    @categories_products = Categories_product.all
-      
+    params[:category_id].each do |cat_id|
+      @new_thing =CategoriesProducts.create(product_id: params[:product_id], category_id: cat_id) 
+    end
+      redirect_to add_category_path(@new_thing.product_id)
   end
 
 end
