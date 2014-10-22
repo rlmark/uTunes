@@ -52,6 +52,7 @@ class MerchantsController < ApplicationController
 
   def ship
     @cart = Cart.find(params[:id])
+    @ordered_items = @cart.ordered_items
   end
 
 private

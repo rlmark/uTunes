@@ -1,3 +1,4 @@
+<h2>Order info</h2>
 <table>
   <tr>
     <td>Order ID:</td>
@@ -44,6 +45,11 @@
     <td>Zip:</td>
     <td><%= @cart.zip%></td>
   </tr>
-
-
 </table>
+
+<h2>Products to Ship</h2>
+<% @ordered_items.each do |item| %>
+<ul>
+  <li>  <%= item.product.album_name %></li>
+</ul>
+<% end %>
