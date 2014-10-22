@@ -1,3 +1,14 @@
+<div class="error">
+  <ul>
+    <% @category.errors.each do |column, message| %>
+    <li>
+      <strong><%= column.capitalize %></strong> <%= message %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+
 <h1>Current categories</h1>
 
 <ul>
