@@ -34,6 +34,7 @@
   display:inline-block;
   margin: 10px;
   position: relative;
+  width: 210px;
 }
 
 // The product image
@@ -55,7 +56,7 @@
 }
 
 // The product headers
-.inner_text h4, h5 {
+.product h4, h5, p {
   margin: 5% 5%;
 }
 
