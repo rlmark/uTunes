@@ -6,6 +6,8 @@
 
 </div>
 
+<%= render "checkout_cart" %>
+
 <div id="customer_information">
 
   <table>
@@ -45,4 +47,6 @@
 
 </div>
 
-Put links to edit and purchase here
+<div class="cart_button">
+<%= link_to "Complete Purchase", complete_order_path %>
+</div>

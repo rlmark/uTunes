@@ -22,7 +22,8 @@ class CartsController < ApplicationController
   end
 
   # Collect and record all customer information
-  def customer_information
+  def cart
+
     cart = Cart.find(session[:cart_id])
     cart.name = params[:cart][:name]
     cart.email = params[:cart][:email]
@@ -35,21 +36,36 @@ class CartsController < ApplicationController
     cart.credit_exp = params[:cart][:credit_exp]
 
     cart.save
-    redirect_to confirm_customer_information_path
+    redirect_to confirmation_path
 
   end
 
   # Display all information before submitting order
   def confirmation
     @cart = Cart.find(session[:cart_id])
+    @ordered_items = OrderedItem.where(cart_id: session[:cart_id], status: "pending")
+    @cart_total = total_cart(@ordered_items)
+  end
+
+  def complete_order
+    @cart = Cart.find(session[:cart_id])
+    @ordered_items = OrderedItem.where(cart_id: session[:cart_id], status: "pending")
+    @ordered_items.each do |item|
+      item.status = "paid"
+      item.save
+      product = Product.find(item.product_id)
+      product.stock = product.stock - item.quantity
+      product.save
+    end
+    session[:cart_id] = nil
+    redirect_to final_page_path
+
   end
 
   # Putting items in cart
   def add_item
 
     if params[:product_id]
-      # still need to close cart and change status to paid etc. so far can only
-      # add to the cart
 
       if session[:cart_id] == nil
         session[:cart_id] = Cart.create(status: "open").id
@@ -91,11 +107,11 @@ def total_cart(items)
   return total
 end
 
-def check_stock(ordered_item)
-  ordered_item.quantity > Product.find(ordered_item.product_id).quantity
-
-
-end
+# def check_stock(ordered_item)
+#   ordered_item.quantity > Product.find(ordered_item.product_id).quantity
+#
+#
+# end
 
 # def total_cart(cart_id)
 #   if session[:cart_id] != nil

@@ -59,14 +59,20 @@ Rails.application.routes.draw do
   patch "/ordered_item/:id", to: "ordered_items#update_quantity", as: :ordered_item
 
   # Enter customer information in cart record
-  patch "/cart/:id", to: "carts#customer_information", as: :cart
+  patch "/carts/:id", to: "carts#cart", as: :cart
 
   # Display all ordere information
-  get "/carts/confirmation", to: "carts#confirmation", as: :confirm_customer_information
+  get "/carts/confirmation", to: "carts#confirmation", as: :confirmation
 
   # Delete an item from a cart
   delete "/ordered_item/:id", to: "ordered_items#delete_ordered_item", as: :delete_ordered_item
 
+
+  # Complete Purchase after customer has reviewed all information
+  get "/carts/complete_order", to: "carts#complete_order", as: :complete_order
+
+  # All done tell the customer they are done
+  get "/carts/final_page", to: "carts#final_page", as: :final_page
 
   # resources :product
 
