@@ -1,48 +1,13 @@
-<!-- <div class="scroll_products">
-
-<%# @products.each do |product|%>
-
-<ul>
-<<<<<<< HEAD
-  <img id = "product_avatar" src=<%#= product.image %>  alt="product photo" height = 100px width = 100px/>
-  <li><strong><%#= link_to product.album_name, product_path(:id => product.id)%></strong></li>
-  <li><%#= product.artist %></li>
-  <li><%#= product.description %></li>
-  <li><%#= "#{number_to_currency(product.price/100.0)}" %></li>
-  <li><%#= "Sold by: #{Merchant.find(product.merchant_id).name}" %></li>
-  <li><%#= "Number in stock: #{product.stock}" %></li>
-  <li><%# product.categories.each do |category|%>
-    <%#= category.name %>
-    <%# end %></li>
-
-  <img id = "product_avatar" src=<%#= product.image %>  alt="product photo" height = 100px width = 100px/>
-  <li><strong><%#= link_to product.album_name, product_path(:id => product.id)%></strong></li>
-  <li><%#= product.artist %></li>
-  <li><%#= product.description %></li>
-  <li><%#= "#{number_to_currency(product.price/100.0)}" %></li>
-  <li><%#= "Sold by: #{Merchant.find(product.merchant_id).name}" %></li>
-  <li><%#= "Number in stock: #{product.stock}" %></li>
-  <li><%# product.categories.each do |category|%>
-    <%#= category.name %>
-    <%# end %></li>
-    <li><%#= link_to "Order Item","/sessions/new?product_id=#{product.id}"%> </li>
-
-</ul>
-<%# end %>
-</div> -->
-
 <div class="scroll_products">
   <% @products.each do |product| %>
-    <a href="<%= product_path(:id => product.id) %>">
-      <div class ="product" id="p<%= product.id %>">
-        <img class="product_image" src="<%= product.image %>" alt="<%= product.album_name %>"/>
-        <div class="inner_text">
-          <h4><%= product.artist %></h4>
-          <h5><%= product.album_name %></h5>
-          <%= image_tag("readmore.png", :class => "readmore") %>
-        </div>
-      </div>
-  </a>
-  <%= button_to "Order Item","/carts/add_item?product_id=#{product.id}", method: :post %>
+    <div class ="product" id="p<%= product.id %>">
+      <a href="<%= product_path(:id => product.id) %>">
+      <img class="product_image" src="<%= product.image %>" alt="<%= product.album_name %>"/>
+        <h4><%= product.artist %></h4>
+        <h5><%= product.album_name %></h5>
+        <p><%= number_to_currency(product.price/100.0) %></p>
+      </a>
+      <%= button_to "Order Item","/carts/add_item?product_id=#{product.id}", method: :post %>
+    </div>
   <% end %>
 </div>
