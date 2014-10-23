@@ -52,9 +52,21 @@ class MerchantsController < ApplicationController
 
   def ship
     @cart = Cart.find(params[:id])
-    ordered_items = @cart.ordered_items.collect{|i| i.product}
-    @merchant_items = ordered_items.select{|i| i.merchant_id == session[:merchant_id]}
+    ordered_products = @cart.ordered_items.collect{|i| i.product}
+    @merchant_items = ordered_products.select{|i| i.merchant_id == session[:merchant_id]}
+  end
 
+  def change_status
+    # gets cart object using params id
+    cart = Cart.find(params[:id])
+    # gets all ordered items and then returns their associated product object.
+    all_products = cart.ordered_items.collect{|i| i.product }
+    # gets all merchants product instances
+    merchant_products = all_products.select{|i| i.merchant_id == session[:merchant_id]}
+    # 
+    merchant_products.each{|i| i.ordered_items.each{|ord_i| ord_i.status = "shipped"; ord_i.save}}
+
+    redirect_to ship_order_path
   end
 
 private

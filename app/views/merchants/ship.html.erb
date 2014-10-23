@@ -59,6 +59,7 @@
 <% end  %>
 
 
-<form id="form_id" action=change_status_path(@cart.id) method="PATCH">
-  <input type="submit" name=<%=@cart.id%> value=@cart.id>
+<form id="form_id" action="/orders/<%= @cart.id %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <input type="submit" value="Mark as shipped">
 </form>

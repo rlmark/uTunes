@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   # Takes you to order shipment page
   get "/orders/:id", to: "merchants#ship", as: :ship_order
   # Chanes status of products upon shipment
-  post "/orders/:id", to: "merchants#change_status", as: :change_status
+  patch "/orders/:id", to: "merchants#change_status", as: :change_status
 
   # Takes you to the edit merchant form
   get "merchant/:id/edit", to: "merchants#edit", as: :edit_merchant
