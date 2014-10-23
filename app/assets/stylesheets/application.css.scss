@@ -45,7 +45,7 @@ input[type=submit] {
 
    background-color: #2C3462;
    color: #E5D5D1;
- 
+
    a {
     color: white;
    }
@@ -73,12 +73,12 @@ input[type=submit] {
      margin-left: 30px;
      padding: 0px;
    }
-   
+
    #logo {
     font-weight: bold;
     font-size: 40px;
   }
-  
+
    #greeting {
     padding: 0px;
     margin: 0px;
@@ -86,7 +86,7 @@ input[type=submit] {
     padding-bottom: 15px;
     font-size: 16px;
    }
-  
+
  }
 
  .category_side_bar {
@@ -102,7 +102,7 @@ input[type=submit] {
      list-style-type: none;
      margin: 8px 0;
    }
-  
+
 
  }
 
@@ -167,6 +167,7 @@ input[type=submit] {
   text-align: center;
 }
 
+
 //#################//
 // PRODUCT STYLE   //
 //#################//
@@ -182,11 +183,11 @@ input[type=submit] {
      padding-bottom: 8px;
      margin-bottom: 5px;
    }
-  
+
   #product_image {
     float: left;
     position: absolute;
-    padding: 0; 
+    padding: 0;
   }
 
   #product_details {
@@ -199,5 +200,5 @@ input[type=submit] {
   }
 }
 fieldset  {
-  
+
 }
