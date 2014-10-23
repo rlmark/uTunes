@@ -17,12 +17,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @merchant = Merchant.find_by(username: params[:merchant][:username], password: params[:merchant][:password])
+    @merchant = Merchant.find_by(username: params[:merchant][:username])#password: params[:merchant][:password])
     if @merchant == nil
-      redirect_to root_path
-    else
+      redirect_to "/sessions/signin"
+    elsif BCrypt::Password.new(@merchant.password) == params[:merchant][:password] #fails here?
       session[:merchant_id] = @merchant.id
-      redirect_to merchants_list_path
+      redirect_to dashboard_path
+    else 
+      redirect_to "/sessions/signin"
     end
   end
 
@@ -33,6 +35,9 @@ class SessionsController < ApplicationController
 
   def check_out
     redirect_to check_out
+  end
+
+  def signin
   end
 
 end
