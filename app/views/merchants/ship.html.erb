@@ -51,13 +51,14 @@
   </tr>
 </table>
 
-<h2>Products to Ship</h2>
-<% @ordered_items.each do |item| %>
+<h2>My Products to Ship</h2>
+<% @merchant_items.each do |item| %>
 <ul>
-  <li>  <%= item.product.album_name %></li>
+  <li><%= item.album_name %></li>
 </ul>
-<% end %>
+<% end  %>
 
-<form id="form_id" action=change_status_path/@cart.id method="PATCH">
-  <input type="submit" name=@cart.id value="Mark as shipped">
+
+<form id="form_id" action=change_status_path(@cart.id) method="PATCH">
+  <input type="submit" name=<%=@cart.id%> value=@cart.id>
 </form>
