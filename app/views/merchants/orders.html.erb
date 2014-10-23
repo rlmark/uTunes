@@ -1,16 +1,4 @@
-<!-- On the order fulfillment page:
-Total Revenue
-Total Revenue by status
-Total number of orders by status
-Filter orders displayed by status
-Link to each individual order
-A list of orders including at least one of my products:
-Each order item sold by me with a quantity and line-item subtotal
-A link to the item description page
-DateTime the order was placed
-Link to transition the order item to marked as shipped
-The current status of the order ("pending", "paid", "complete", "cancelled") -->
-<!-- link_to "#{category.name}", "/sessions/new?category=#{category.id}" -->
+
 <h2>Your Orders</h2>
 <div class="horizontal_nav">
   <p>
@@ -24,6 +12,9 @@ The current status of the order ("pending", "paid", "complete", "cancelled") -->
   </p>
   <p>
     <%= link_to "View Cancelled", "/orders/?status=cancelled" %>
+  </p>
+  <p>
+    <%= link_to "View Shipped", "/orders/?status=shipped" %>
   </p>
 </div>
 
