@@ -35,22 +35,40 @@ a {
 
  #main_nav_bar {
 
-   background-color: #00ff00;
+   background-color: #2C3462;
    margin: 0;
    padding: 0;
+   color: #E5D5D1;
+   
+   a {
+    color: white;
+   }
+
+   li :hover {
+    color: #E55852;
+   }
+
+   #logo :hover {
+    color: white;
+   }
 
    ul {
      display: block;
      list-style-type: none;
      padding: 10px;
-     margin: none;
+     margin: 0;
    }
 
    li {
      display: inline-block;
      margin-left: 10px;
-
    }
+   
+   #logo {
+    font-weight: bold;
+    font-size: 40px;
+  }
+  
  }
 
  .category_side_bar {
@@ -66,6 +84,7 @@ a {
    li {
      list-style-type: none;
    }
+  
 
  }
 
