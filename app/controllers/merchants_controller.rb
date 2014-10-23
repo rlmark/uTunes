@@ -52,7 +52,9 @@ class MerchantsController < ApplicationController
 
   def ship
     @cart = Cart.find(params[:id])
-    @ordered_items = @cart.ordered_items
+    ordered_items = @cart.ordered_items.collect{|i| i.product}
+    @merchant_items = ordered_items.select{|i| i.merchant_id == session[:merchant_id]}
+
   end
 
 private
