@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get "/sessions/new", to: "sessions#new"
   # post "/sessions/new", to: "sessions#new"
+  get "/sessions/signin", to: "sessions#signin"  
 
   post "/sessions", to: "sessions#create"
   delete "/sessions", to: "sessions#delete"
@@ -26,6 +27,9 @@ Rails.application.routes.draw do
   get "/orders", to: "merchants#orders", as: :orders
   # Takes you to order shipment page
   get "/orders/:id", to: "merchants#ship", as: :ship_order
+  # Chanes status of products upon shipment
+  post "/orders/:id", to: "merchants#change_status", as: :change_status
+
   # Takes you to the edit merchant form
   get "merchant/:id/edit", to: "merchants#edit", as: :edit_merchant
   # Updates the merchant profile info from form

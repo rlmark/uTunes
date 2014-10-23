@@ -1,5 +1,4 @@
 class MerchantsController < ApplicationController
-
   def index
     @all_merchants = Merchant.all
   end
@@ -11,8 +10,9 @@ class MerchantsController < ApplicationController
   def create
     @all_merchants = Merchant.all
     @merchant = Merchant.new(params.require(:merchant).permit(:name, :email, :username, :password))
+    @merchant.password = BCrypt::Password.create(params[:merchant][:password])
     if @merchant.save
-      redirect_to root_path
+      redirect_to "/sessions/signin"
     else
       render new_merchant_path
     end
@@ -25,6 +25,8 @@ class MerchantsController < ApplicationController
   def update
     @merchant = Merchant.find(session[:merchant_id])
     if @merchant.update(params.require(:merchant).permit(:name, :email, :username, :password))
+      @merchant.password = BCrypt::Password.create(params[:merchant][:password]) #not working
+      @merchant.save
       redirect_to dashboard_path
     else
       render :edit_merchant
@@ -52,7 +54,9 @@ class MerchantsController < ApplicationController
 
   def ship
     @cart = Cart.find(params[:id])
-    @ordered_items = @cart.ordered_items
+    ordered_items = @cart.ordered_items.collect{|i| i.product}
+    @merchant_items = ordered_items.select{|i| i.merchant_id == session[:merchant_id]}
+
   end
 
 private
