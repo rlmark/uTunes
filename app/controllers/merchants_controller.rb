@@ -13,12 +13,16 @@ class MerchantsController < ApplicationController
     if params[:holder] == params[:merchant][:password]
       @merchant.password = BCrypt::Password.create(params[:merchant][:password])
       if @merchant.save
-        redirect_to "/sessions/signin"
+        redirect_to "/sessions/signin" 
+      else
+      #redirect_to "/merchants/new"
+        render :new
       end
-    else
-      render new_merchant_path
+    else 
+      #redirect_to "/merchants/new"
+        render :new
     end
-  end
+end
 
   def edit
     @merchant = Merchant.find(session[:merchant_id])
