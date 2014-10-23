@@ -33,8 +33,8 @@ class CartsController < ApplicationController
     @cart.city = params[:cart][:city]
     @cart.state = params[:cart][:state]
     @cart.zip = params[:cart][:zip].to_i
-    @cart.credit_num = params[:cart][:credit_num].to_i
-    @cart.credit_cvv = params[:cart][:credit_cvv].to_i
+    @cart.credit_num = params[:cart][:credit_num]
+    @cart.credit_cvv = params[:cart][:credit_cvv]
     @cart.month = params[:cart][:month]
     @cart.year = params[:cart][:year]
     if @cart.save
