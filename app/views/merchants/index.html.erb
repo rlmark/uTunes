@@ -4,10 +4,7 @@
   <% @all_merchants.each do |merchant|  %>
 
     <b>Shop Name: <%= merchant.name %><br></b>
-    ID: <%= merchant.id %><br>
     Email: <%= merchant.email %><br>
-    Password: <%= merchant.password %><br>
-    Username: <%= merchant.username %><br>
     <hr>
     <div class="merchants_products">
       <% merchant.products.each do |product|%>
