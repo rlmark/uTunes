@@ -29,6 +29,9 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# For stylesheets on heroku
+gem 'rails_12factor'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -43,4 +46,3 @@ gem 'faker'
 
 # Use image resizing gem
 # gem "rmagick", "~> 2.12.0"
-
