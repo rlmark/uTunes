@@ -45,6 +45,7 @@ class CartsController < ApplicationController
       @ordered_items = OrderedItem.where(cart_id: session[:cart_id], status: "pending")
       @cart_total = total_cart(@ordered_items)
       render "check_out"
+
     end
   end
 
