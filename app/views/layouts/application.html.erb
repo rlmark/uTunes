@@ -20,13 +20,13 @@
           <li><%= link_to "Dashboard", "/dashboard" %></li>
       <% end %>
       <% if session[:merchant_id] %>
-        <% name = Merchant.find(session[:merchant_id]).name%>
         <li><%= link_to "Sign Out", "/sessions", method: :delete %></li> 
-        <li>Hello, <%= name %>!</li>
           <% else %>
         <li><%= link_to "Sign In/Create Account", "/sessions/signin"%></li>
-          <% end %>
+          <% end %> 
     </ul>
+      <% name = Merchant.find(session[:merchant_id]).name%> 
+      <div id="greeting">Hello, <%= name %>!</div>
 
 
   </nav>

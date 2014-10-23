@@ -44,10 +44,8 @@ input[type=submit] {
  #main_nav_bar {
 
    background-color: #2C3462;
-   margin: 0;
-   padding: 0;
    color: #E5D5D1;
-   
+ 
    a {
     color: white;
    }
@@ -64,18 +62,30 @@ input[type=submit] {
      display: block;
      list-style-type: none;
      padding: 10px;
-     margin: 0;
+     margin-top: 0px;
+     text-align: center;
+     padding-bottom: 0px;
+     margin-bottom: 5px;
    }
 
    li {
      display: inline-block;
-     margin-left: 10px;
+     margin-left: 30px;
+     padding: 0px;
    }
    
    #logo {
     font-weight: bold;
     font-size: 40px;
   }
+  
+   #greeting {
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: 16px;
+   }
   
  }
 
