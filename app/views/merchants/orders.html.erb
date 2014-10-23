@@ -11,6 +11,7 @@ DateTime the order was placed
 Link to transition the order item to marked as shipped
 The current status of the order ("pending", "paid", "complete", "cancelled") -->
 <!-- link_to "#{category.name}", "/sessions/new?category=#{category.id}" -->
+<h2>Your Orders</h2>
 <div class="horizontal_nav">
   <p>
     <%= link_to "View All", "/orders" %>
@@ -32,7 +33,7 @@ The current status of the order ("pending", "paid", "complete", "cancelled") -->
       Item ID
     </th>
     <th>
-      Quantity Ordered
+      Quantity<br>Ordered
     </th>
     <th>
       Item Name
@@ -44,10 +45,10 @@ The current status of the order ("pending", "paid", "complete", "cancelled") -->
       Item price
     </th>
     <th>
-      Time Placed
+      Order ID
     </th>
     <th>
-      Order ID
+      Ship Order
     </th>
   </tr>
   <% @ordered_items.each do |item|%>
@@ -57,8 +58,10 @@ The current status of the order ("pending", "paid", "complete", "cancelled") -->
       <td><%= item.product.album_name %></td>
       <td><%= item.status %></td>
       <td><%= number_to_currency(item.product.price/100.0) %></td>
-      <td><%= item.updated_at.strftime("%A, %d %b %Y %l:%M %p") %></td>
       <td><%= item.cart_id %></td>
+      <% if item.status == "paid" %><td>
+        <%=  link_to "Ship Order", ship_order_path(item.cart_id) %></td>
+      <% end %>
     </tr>
   <% end %>
   <tr>
