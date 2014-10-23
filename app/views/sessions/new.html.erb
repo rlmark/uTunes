@@ -6,7 +6,9 @@
   <label for="merchant_password">Password:</label>
   <input type="password" name="merchant[password]" />
   <input type="submit" value="Sign In" class="submit"/>
-</form>
+</form><br>
+
+<%= "Total Price of Current Cart: #{number_to_currency(@cart_total)}"%><br>
 
 <%= link_to "Create New Merchant", "/merchants/new" %>
 
@@ -19,4 +21,3 @@
 <div id="product_display">
   <%= render "products/product_display" %>
 </div>
-
