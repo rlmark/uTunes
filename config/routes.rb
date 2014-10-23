@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   patch "/product/:id", to: "products#update", as: :update_product
 
   get "/check_out", to: "carts#check_out", as: :check_out
-  get "/empty_cart", to: "carts#empty_cart"
+  delete "/empty_cart", to: "carts#empty_cart", as: :empty_cart
 
   # Links from home page to cart overview
   get "/cart", to: "carts#show", as: :show_cart
