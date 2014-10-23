@@ -11,12 +11,12 @@ class Cart < ActiveRecord::Base
     f.validates :credit_num, format: {with: /\A\d{10}\Z/,
        :message => " Credit cards numbers require 10 digits with no spaces"}
   #   #
-    f.validates :month, presence: true
+    f.validates :month, :presence => {:message => " is required"}
     f.validates :month, :numericality => {:greater_than => 0,
        :less_than_or_equal_to => 12, :message => " Please choose a valid month 1 - 12"}
   #   #
-    f.validates :year, presence: true
-    f.validates :year, :numericality => {:greater_than => 2014,
+    f.validates :year, :presence => {:message => " is required"}
+    f.validates :year, :numericality => {:greater_than => 2013,
          :message => " Expiration year must be at least 2014"}
   end
 
