@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>UTunes</title>
+
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
@@ -13,7 +14,7 @@
 
     <ul>
 
-      <li><%= link_to "Home", "/sessions/new"%></li> 
+      <li><%= link_to "Home", "/sessions/new"%></li>
       <li><%= link_to "Shop by Merchant", "/merchants/index" %></li>
       <li><%= link_to "Shop by Category", "/categories_products/index" %></li>
       <li><%= link_to "Cart", show_cart_path %></li>
@@ -22,7 +23,7 @@
       <% end %>
       <% if session[:merchant_id] %>
         <% name = Merchant.find(session[:merchant_id]).name%>
-        <li><%= link_to "Sign Out", "/sessions", method: :delete %></li> 
+        <li><%= link_to "Sign Out", "/sessions", method: :delete %></li>
         <li>Hello, <%= name %>!</li>
           <% else %>
         <li><%= link_to "Sign In/Create Account", "/sessions/signin"%></li>

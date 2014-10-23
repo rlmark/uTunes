@@ -118,6 +118,19 @@ a {
 // FORM STYLE   //
 //##############//
 
-.form-style = {
+.basic-button  {
+  display: block;
+
+  height: auto;
+  width: 25%;
+  background_color: #00f;
+  font-family: arial;
+  font-style: bold;
+  border: solid #932260;
+  border-radius: 1em;
+  text-align: center;
+}
+
+fieldset  {
   
 }

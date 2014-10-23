@@ -1,9 +1,24 @@
 <form class = "form-style" action="/sessions" method="post">
-   <label for="merchant_username">Username:</label>
-  <input type="string" name="merchant[username]" />
-  <label for="merchant_password">Password:</label>
-  <input type="password" name="merchant[password]" />
+    <fieldset>
+           <legend><h2>Merchant Sign In</h2></legend><br><br>
+  <label for="merchant_username">Username:</label><br>
+  <input placeholder = "Username" type="string" name="merchant[username]" />
+  <br><br>
+  <label for="merchant_password">Password:</label><br>
+  <input placeholder = "Password" type="password" name="merchant[password]" />
+  <br><br>
   <input type="submit" value="Sign In" class="submit"/>
-</form>
 
- <%= link_to "Create New Merchant", "/merchants/new" %>
+
+</fieldset>
+
+ <fieldset>
+   <legend><h2>Create A New Merchant Account</h2></legend><br><br>
+
+<div class = "basic-button">
+  <%= link_to "Join Now!", "/merchants/new" %>
+</div>
+
+</fieldset>
+
+ </form>
