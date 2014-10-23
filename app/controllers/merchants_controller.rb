@@ -10,9 +10,11 @@ class MerchantsController < ApplicationController
   def create
     @all_merchants = Merchant.all
     @merchant = Merchant.new(params.require(:merchant).permit(:name, :email, :username, :password))
-    @merchant.password = BCrypt::Password.create(params[:merchant][:password])
-    if @merchant.save
-      redirect_to "/sessions/signin"
+    if params[:holder] == params[:merchant][:password]
+      @merchant.password = BCrypt::Password.create(params[:merchant][:password])
+      if @merchant.save
+        redirect_to "/sessions/signin"
+      end
     else
       render new_merchant_path
     end
