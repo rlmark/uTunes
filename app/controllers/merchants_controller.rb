@@ -76,9 +76,10 @@ class MerchantsController < ApplicationController
 
     orders = cart.ordered_items.includes(:product).where(products: {merchant_id: session[:merchant_id]})
 
-    orders.update_all(status: "shipped")
+    # orders.update_all(status: "shipped")
+    orders.each{|order| order.status = "shipped"; order.save}
 
-    redirect_to dashboard_path
+    redirect_to orders_path
   end
 
 private
