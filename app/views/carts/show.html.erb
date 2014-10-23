@@ -65,8 +65,14 @@
   </tr>
 </table>
 
+
 <div class="cart_button">
 <%= link_to "Check Out", "/check_out" %>
+</div>
+
+
+<div class="cart_button">
+<%= button_to "Empty Cart", empty_cart_path,  method: :delete %>
 </div>
 
 
