@@ -56,9 +56,15 @@ class MerchantsController < ApplicationController
 
   def ship
     @cart = Cart.find(params[:id])
-    ordered_items = @cart.ordered_items.collect{|i| i.product}
-    @merchant_items = ordered_items.select{|i| i.merchant_id == session[:merchant_id]}
+    ordered_products = @cart.ordered_items.collect{|i| i.product}
+    @merchant_items = ordered_products.select{|i| i.merchant_id == session[:merchant_id]}
+  end
 
+  def change_status
+    cart = Cart.find(params[:id])
+    orders = cart.ordered_items.includes(:product).where(products: {merchant_id: session[:merchant_id]})
+    orders.each{|order| order.status = "shipped"; order.save}
+    redirect_to orders_path
   end
 
 private
