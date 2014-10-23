@@ -6,11 +6,13 @@
 (1..10).each do
   name = Faker::Company.name
   username = /[a-z]+/.match(name.downcase)[0]
+  password = username.reverse
+  password = BCrypt::Password.create(password)
   merchant = {
     name: name,
     username: username,
     email: username + "@" + username + ".com",
-    password: username.reverse
+    password: password
   }
   Merchant.create(merchant)
 end

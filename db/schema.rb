@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 20141023170245) do
     t.string   "state"
     t.integer  "zip"
     t.string   "name"
+    t.string   "credit_num"
     t.integer  "credit_cvv"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "month"
     t.integer  "year"
-    t.string   "credit_num"
   end
 
   create_table "categories", force: true do |t|
