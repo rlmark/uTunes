@@ -16,6 +16,7 @@ class CartsController < ApplicationController
       @ordered_items = []
       @cart_total = 0.0
     else
+      @cart = Cart.find(session[:cart_id])
       @ordered_items = Cart.find(session[:cart_id]).ordered_items
       @cart_total = total_cart(@ordered_items)
     end
@@ -41,7 +42,9 @@ class CartsController < ApplicationController
       redirect_to confirmation_path
     else
       @cart.status = "open"
-      redirect_to check_out_path
+      @ordered_items = OrderedItem.where(cart_id: session[:cart_id], status: "pending")
+      @cart_total = total_cart(@ordered_items)
+      render "check_out"
     end
   end
 

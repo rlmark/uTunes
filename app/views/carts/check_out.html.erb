@@ -14,6 +14,13 @@ link to finish purchase
 change stock values
 change status of ordered items to paid
 
+<div class="error">
+  <ul>
+    <% @cart.errors.each do |column,message|  %>
+    <li><strong><%= column.capitalize %></strong><%= message %></li>
+    <% end %>
+  </ul>
+</div>
 
 <%= render "checkout_cart" %><br>
 
