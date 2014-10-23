@@ -14,6 +14,8 @@ class SessionsController < ApplicationController
     else
       @products = Product.order(album_name: :asc)
     end
+
+
   end
 
   def create

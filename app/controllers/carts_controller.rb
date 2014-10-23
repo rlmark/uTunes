@@ -25,6 +25,7 @@ class CartsController < ApplicationController
   def cart
 
     cart = Cart.find(session[:cart_id])
+    #cart.status = "closed"#######################We did this to delay validations}
     cart.name = params[:cart][:name]
     cart.email = params[:cart][:email]
     cart.address = params[:cart][:address]
@@ -48,6 +49,7 @@ class CartsController < ApplicationController
     @cart_total = total_cart(@ordered_items)
   end
 
+  # Customer has paid so items are marked paid and session[:cart_id] = nil
   def complete_order
     @cart = Cart.find(session[:cart_id])
     @ordered_items = OrderedItem.where(cart_id: session[:cart_id], status: "pending")
@@ -67,9 +69,7 @@ class CartsController < ApplicationController
 
   # Putting items in cart
   def add_item
-
-    if params[:product_id]
-
+    if params[:product_id] != nil
       if session[:cart_id] == nil
         session[:cart_id] = Cart.create(status: "open").id
         @cart_total = 0.0

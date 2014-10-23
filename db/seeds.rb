@@ -2,28 +2,6 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 
-# Product
-(1..100).each do
-  name = Faker::Commerce.product_name
-  product = {
-    active: true,
-    artist: Faker::Name.name,
-    album_name: name + " album",
-    stock: rand(0..10),
-    merchant_id: rand(1..10),
-    description: Faker::Lorem.sentence(2),
-    price: rand(500..5000),
-    image: Faker::Avatar.image( /[a-z]+/.match(name.downcase)[0], "300x300")
-  }
-  Product.create(product)
-end
-
-# Ratings
-(1..150).each do 
-  id = (1..100).to_a.shuffle.first 
-  Rating.create(stars: rand(1..5), comments: Faker::Lorem.sentence(1), product_id: id)
-end 
-
 # Merchants
 (1..10).each do
   name = Faker::Company.name
@@ -36,6 +14,32 @@ end
   }
   Merchant.create(merchant)
 end
+
+merchant_count = Merchant.all.length
+
+# Product
+(1..100).each do
+  name = Faker::Commerce.product_name
+  product = {
+    active: true,
+    artist: Faker::Name.name,
+    album_name: name + " album",
+    stock: rand(0..10),
+    merchant_id: rand(1..merchant_count),
+    description: Faker::Lorem.sentence(2),
+    price: rand(500..5000),
+    image: Faker::Avatar.image( /[a-z]+/.match(name.downcase)[0], "300x300")
+  }
+  Product.create(product)
+end
+
+# Ratings
+(1..150).each do
+  id = (1..100).to_a.shuffle.first
+  Rating.create(stars: rand(1..5), comments: Faker::Lorem.sentence(1), product_id: id)
+end
+
+
 
 # CategoriesProducts
 Product.all.each do |product|
@@ -70,8 +74,3 @@ end
 #
 #   Vendor.create(vendor)
 # end
-
-
-
-
-

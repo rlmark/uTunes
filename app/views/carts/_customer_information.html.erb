@@ -1,101 +1,60 @@
 <!-- Customer Input for Payment -->
 
 
-<table id="customer_information_form">
+<div class="error">
+  <ul>
+    <% @cart.errors.each do |column,message|  %>
+    <li><strong><%= column.capitalize %></strong><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="customer_information_form">
 
 
 <%= form_for @cart do |f| %>
 <%= f.hidden_field :cart_id, value: session[:cart_id] %>
-<tr>
-  <td>
-    <%= f.label "name" , value = "Name as it appears on your Credit Card"%>
-  </td>
-  <td>
-    <%= f.text_field "name" %><br>
-  </td>
-</tr>
-<tr>
-  <td>
-    <%= f.label "email", value = "Your Email" %>
-  </td>
-  <td>
-    <%= f.email_field "email" %><br>
-  </td>
-</tr>
-<tr>
-  <td>
+
+<ul>
+
+<li><%= f.label "name" , value = "Name as it appears on your Credit Card"%>
+<%= f.text_field "name" %>
+</li>
+<li><%= f.label "email", value = "Your Email" %>
+<%= f.email_field "email" %></li>
+<li>
   <%= f.label "address", value = "Street Address" %>
-</td>
-<td>
   <%= f.text_field "address" %>
-</td>
-</tr>
-<tr>
-  <td>
+</li>
+<li>
     <%= f.label "city", value = "City" %>
-  </td>
-  <td>
     <%= f.text_field "city" %>
-  </td>
-<tr>
-  <td>
+
     <%= f.label "state", value = "State" %>
-  </td>
-  <td>
     <%= f.text_field "state" %>
-  </td>
-</tr>
-<tr>
-  <td>
+
     <%= f.label "zip", value = "Zip Code" %>
-  </td>
-  <td>
     <%= f.text_field "zip"%>
-  </td>
-</tr>
-
-<tr>
-  <td>
+</li>
+<li>
     <%= f.label "credit_num", value = "Credit Card Number" %>
-
-  </td>
-  <td>
     <%= f.text_field "credit_num" %>
-  </td>
-</tr>
+</li>
 
-<tr>
-  <td>
+<li>
     <%= f.label "credit_cvv", value = "Credit CVV" %>
-
-  </td>
-  <td>
     <%= f.text_field "credit_cvv" %>
-  </td>
-</tr>
 
-<tr>
-  <td>
     <%= f.label "month", value = "Expiration Month" %>
-  </td>
-  <td>
     <%= f.text_field "month" %>
-  </td>
-</tr>
-<tr>
-  <td>
+
     <%= f.label "year", value = "Expiration Year" %>
-  </td>
-  <td>
     <%= f.text_field "year" %>
-  </td>
-</tr>
-<tr>
-  <td>
-  <%= f.submit value="Submit Information"%>
-</td>
-</tr>
+</li>
+
+<li>  <%= f.submit value="Submit Information"%></li>
+
   <% end %>
+  </ul>
 
-
-</table>
+</div>
