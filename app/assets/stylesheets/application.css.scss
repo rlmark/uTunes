@@ -167,6 +167,37 @@ input[type=submit] {
   text-align: center;
 }
 
+//#################//
+// PRODUCT STYLE   //
+//#################//
+.product-page {
+  position: relative;
+  text-align: center;
+  padding-top: 10px;
+
+  ul {
+     list-style-type: none;
+     padding: 10px;
+     margin-top: 0px;
+     padding-bottom: 8px;
+     margin-bottom: 5px;
+   }
+  
+  #product_image {
+    float: left;
+    position: absolute;
+    padding: 0; 
+  }
+
+  #product_details {
+    float: right;
+    position: absolute;
+  }
+
+  #product_ratings {
+    clear: both;
+  }
+}
 fieldset  {
   
 }
