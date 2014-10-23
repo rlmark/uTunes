@@ -16,6 +16,10 @@
   </tr>
 
   <tr>
+    <td>Credit Card Expiration:</td>
+    <td><%= @cart.month %>/<%= @cart.year %></td>
+  </tr>
+  <tr>
     <td>Time Ordered: </td>
     <td><%= @cart.updated_at.strftime("%A, %d %b %Y %l:%M %p") %>
 </td>
@@ -53,3 +57,7 @@
   <li>  <%= item.product.album_name %></li>
 </ul>
 <% end %>
+
+<form id="form_id" action=change_status_path/@cart.id method="PATCH">
+  <input type="submit" name=@cart.id value="Mark as shipped">
+</form>
