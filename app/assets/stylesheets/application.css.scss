@@ -149,3 +149,24 @@ input[type=submit] {
 .error li:first-child {
   padding-top: 30px;
 }
+
+//##############//
+// FORM STYLE   //
+//##############//
+
+.basic-button  {
+  display: block;
+
+  height: auto;
+  width: 25%;
+  background_color: #00f;
+  font-family: arial;
+  font-style: bold;
+  border: solid #932260;
+  border-radius: 1em;
+  text-align: center;
+}
+
+fieldset  {
+  
+}
