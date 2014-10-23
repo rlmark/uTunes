@@ -16,6 +16,7 @@ class CartsController < ApplicationController
       @ordered_items = []
       @cart_total = 0.0
     else
+      @cart = Cart.find(session[:cart_id])
       @ordered_items = Cart.find(session[:cart_id]).ordered_items
       @cart_total = total_cart(@ordered_items)
     end
@@ -24,22 +25,27 @@ class CartsController < ApplicationController
   # Collect and record all customer information
   def cart
 
-    cart = Cart.find(session[:cart_id])
-    #cart.status = "closed"#######################We did this to delay validations}
-    cart.name = params[:cart][:name]
-    cart.email = params[:cart][:email]
-    cart.address = params[:cart][:address]
-    cart.city = params[:cart][:city]
-    cart.state = params[:cart][:state]
-    cart.zip = params[:cart][:zip].to_i
-    cart.credit_num = params[:cart][:credit_num].to_i
-    cart.credit_cvv = params[:cart][:credit_cvv].to_i
-    cart.month = params[:cart][:month]
-    cart.year = params[:cart][:year]
 
-    cart.save
-    redirect_to confirmation_path
-
+    @cart = Cart.find(session[:cart_id])
+    @cart.status = "closed"
+    @cart.name = params[:cart][:name]
+    @cart.email = params[:cart][:email]
+    @cart.address = params[:cart][:address]
+    @cart.city = params[:cart][:city]
+    @cart.state = params[:cart][:state]
+    @cart.zip = params[:cart][:zip].to_i
+    @cart.credit_num = params[:cart][:credit_num]
+    @cart.credit_cvv = params[:cart][:credit_cvv]
+    @cart.month = params[:cart][:month]
+    @cart.year = params[:cart][:year]
+    if @cart.save
+      redirect_to confirmation_path
+    else
+      @cart.status = "open"
+      @ordered_items = OrderedItem.where(cart_id: session[:cart_id], status: "pending")
+      @cart_total = total_cart(@ordered_items)
+      render "check_out"
+    end
   end
 
   # Display all information before submitting order
