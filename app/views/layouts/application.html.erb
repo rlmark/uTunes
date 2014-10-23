@@ -14,21 +14,24 @@
 
     <ul>
 
-      <li><%= link_to "Home", "/sessions/new"%></li>
+      <li id="logo"><a href="/sessions/new">uTunes</a></li>
+
       <li><%= link_to "Shop by Merchant", "/merchants/index" %></li>
-      <li><%= link_to "Shop by Category", "/categories_products/index" %></li>
+      <li><%= link_to "Shop by Category", "/sessions/new" %></li>
       <li><%= link_to "Cart", show_cart_path %></li>
       <% if session[:merchant_id] %>
           <li><%= link_to "Dashboard", "/dashboard" %></li>
       <% end %>
       <% if session[:merchant_id] %>
-        <% name = Merchant.find(session[:merchant_id]).name%>
+
         <li><%= link_to "Sign Out", "/sessions", method: :delete %></li>
-        <li>Hello, <%= name %>!</li>
+
           <% else %>
         <li><%= link_to "Sign In/Create Account", "/sessions/signin"%></li>
           <% end %>
     </ul>
+      <% name = Merchant.find(session[:merchant_id]).name%>
+      <div id="greeting">Hello, <%= name %>!</div>
 
 
   </nav>
