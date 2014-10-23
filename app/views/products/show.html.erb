@@ -1,6 +1,6 @@
-<div class="category_side_bar">
-  <%= render "/sessions/category_list" %>
 </div>
+<%= button_to "Order Item","/carts/add_item?product_id=#{params[:id]}", method: :post %>
+
 
 <img src="<%= @product.image %>" alt="<%= @product.album_name %>" />
 
