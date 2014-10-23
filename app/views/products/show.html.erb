@@ -1,39 +1,29 @@
+
+<div class = "productpage">
+  
+  <div class = "product_image">
+  <img src="<%= @product.image %>" alt="<%= @product.album_name %>" />
+  </div>
+  
+  <ul class = "product_details">
+    <li>Album name:&nbsp; <%= @product.album_name %></li>
+    <li>Artist:&nbsp; <%= @product.artist %></li>
+    <li>Price:&nbsp; <%= @product.price %></li>
+    <li>Description:&nbsp; <%= @product.description %></li>
+    <li>Categories:&nbsp; 
+      <% @product.categories.each do |category|%>
+        <%= category.name %>.&nbsp;
+      <% end  %>
+    <li><%= button_to "Order Item","/carts/add_item?product_id=#{params[:id]}", method: :post %></li>
+  </ul>
+  
+  <ul class = "product_ratings">
+    <li><% if @product.merchant_id != session[:merchant_id ] %></li>
+    <%= link_to "Review product", new_rating_path(@product.id) %>
+  <% end %>
+    <li><% @ratings.each do |rating| %>
+    Stars:&nbsp;<%= "*" *rating.stars %> &nbsp; Comments: &nbsp;<%= rating.comments %></p>
+  <% end  %></li>
+  </ul>
 </div>
-<%= button_to "Order Item","/carts/add_item?product_id=#{params[:id]}", method: :post %>
 
-
-<img src="<%= @product.image %>" alt="<%= @product.album_name %>" />
-
-<p>
-  Album name: <%= @product.album_name %>
-</p>
-
-<p>
-  Artist: <%= @product.artist %>
-</p>
-
-<p>
-  Price: <%= @product.price %>
-</p>
-
-<p>
-  Description: <%= @product.description %>
-</p>
-
-
-  Categories:
-<% @product.categories.each do |category|%>
-  <p><%= category.name %></p>
-<% end  %>
-
-<% @ratings.each do |rating| %>
-  <p>Stars: <%= "*" *rating.stars %></p>
-  <p>Comment: <%= rating.comments %></p>
-<% end  %>
-
-<% if @product.merchant_id != session[:merchant_id ] %>
-  <%= link_to "Review product", new_rating_path(@product.id) %>
-<% end %>
-<p>
-  Add to cart
-</p>
