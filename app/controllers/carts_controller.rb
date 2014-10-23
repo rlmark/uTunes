@@ -24,22 +24,25 @@ class CartsController < ApplicationController
   # Collect and record all customer information
   def cart
 
-    cart = Cart.find(session[:cart_id])
-    #cart.status = "closed"#######################We did this to delay validations}
-    cart.name = params[:cart][:name]
-    cart.email = params[:cart][:email]
-    cart.address = params[:cart][:address]
-    cart.city = params[:cart][:city]
-    cart.state = params[:cart][:state]
-    cart.zip = params[:cart][:zip].to_i
-    cart.credit_num = params[:cart][:credit_num].to_i
-    cart.credit_cvv = params[:cart][:credit_cvv].to_i
-    cart.month = params[:cart][:month]
-    cart.year = params[:cart][:year]
 
-    cart.save
-    redirect_to confirmation_path
-
+    @cart = Cart.find(session[:cart_id])
+    @cart.status = "closed"
+    @cart.name = params[:cart][:name]
+    @cart.email = params[:cart][:email]
+    @cart.address = params[:cart][:address]
+    @cart.city = params[:cart][:city]
+    @cart.state = params[:cart][:state]
+    @cart.zip = params[:cart][:zip].to_i
+    @cart.credit_num = params[:cart][:credit_num].to_i
+    @cart.credit_cvv = params[:cart][:credit_cvv].to_i
+    @cart.month = params[:cart][:month]
+    @cart.year = params[:cart][:year]
+    if @cart.save
+      redirect_to confirmation_path
+    else
+      @cart.status = "open"
+      redirect_to check_out_path
+    end
   end
 
   # Display all information before submitting order
