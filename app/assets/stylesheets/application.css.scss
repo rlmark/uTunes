@@ -168,14 +168,14 @@ input[type=submit] {
 }
 
 
-//#################//
-// PRODUCT STYLE   //
-//#################//
-.product-page {
-  position: relative;
-  text-align: center;
-  padding-top: 10px;
-
+/*
+.product_page {
+  width: 1000px;
+  display: block;
+  padding: 10px;
+  margin: 0 0 60px 0;
+  vertical-align: baseline;
+  overflow: hidden;
   ul {
      list-style-type: none;
      padding: 10px;
@@ -186,19 +186,25 @@ input[type=submit] {
 
   #product_image {
     float: left;
-    position: absolute;
+    width: 500px;
+    margin: 0;
     padding: 0;
+    border: 0;
+    background: transparent;
   }
 
   #product_details {
     float: right;
     position: absolute;
+    padding: 0;
   }
 
   #product_ratings {
+    padding: 0;
     clear: both;
   }
 }
 fieldset  {
 
 }
+*/
