@@ -17,7 +17,9 @@ class ProductsController < ApplicationController
   # Creates a new product in the database
   def create
     merchant = Merchant.find(session[:merchant_id])
-    @product = merchant.products.new(params.require(:product).permit(:artist, :album_name, :description, :image, :stock, :price, :status))
+    @product = merchant.products.new(params.require(:product).permit(:artist, :album_name, :description, :image, :stock, :status))
+    thing = /(\d+)\.?(\d{2})?/.match(params[:holder])
+    @product.price = (thing[1].to_i * 100) + thing[2].to_i
     if @product.save
       redirect_to dashboard_path
     else
