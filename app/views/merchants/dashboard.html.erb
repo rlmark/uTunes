@@ -8,8 +8,8 @@
     <tr>
       <td>
         <ul>
-          <li>Your Username: <%= @merchant_dash.username %></li>
-          <li>Your Email: <%= @merchant_dash.email %></li>
+          <li>Your Username: <strong><%= @merchant_dash.username %></strong></li>
+          <li>Your Email: <strong><%= @merchant_dash.email %></strong></li>
           <li>---------</li>
           <li>  <%= link_to "Edit your information", edit_merchant_path(@merchant_dash.id) %></li>
         </ul>

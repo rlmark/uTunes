@@ -1,18 +1,22 @@
-<h2>Check Out</h2>
+<div class="center-text">
+  <h1>Check Out</h1>
+</div>
 
-Put the customer's information here and change status of ordered items in cart.
 
-Receive cart_id
-check stock values on all items
 
-Collect consumer information
-validate information
 
-confirm information
-link to finish purchase
+<%= render "checkout_cart" %><br>
 
-change stock values
-change status of ordered items to paid
+
+
+<div class="center-text">
+  <div class="basic-button">
+      <%= link_to "Return To Shopping", "/sessions/new" %><br>
+  </div>
+</div>
+
+
+<br>
 
 <div class="error">
   <ul>
@@ -21,14 +25,4 @@ change status of ordered items to paid
     <% end %>
   </ul>
 </div>
-
-<%= render "checkout_cart" %><br>
-
-
-<div class="cart_button">
-<%= link_to "Return To Shopping", "/sessions/new" %><br>
-</div>
-
-<br>
-
 <%= render "customer_information" %><br>

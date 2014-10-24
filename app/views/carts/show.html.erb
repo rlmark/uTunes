@@ -39,7 +39,7 @@
     <td>
   <%= form_for item do |f| %>
     <%= f.hidden_field :item_id, value: item.id %>
-    <%= f.number_field :quantity %>
+    <%= f.number_field :quantity, style: "width:100px"%>
     <%= submit_tag "Update" %>
   <% end %>
     </td>
@@ -73,14 +73,11 @@
   available stock.
 </div>
 
-
-<div class="basic-button">
-
-<%= link_to "Check Out", "/check_out"%>
-
-</div>
-
-
-<div class="basic-button inline-button">
-<%= button_to "Empty Cart", empty_cart_path,  method: :delete %>
+<div id="cart-buttons">
+  <div class="basic-button">
+    <%= link_to "Check Out", "/check_out"%>
+  </div>
+  <div class="basic-button inline-button">
+    <%= button_to "Empty Cart", empty_cart_path,  method: :delete %>
+  </div>
 </div>
