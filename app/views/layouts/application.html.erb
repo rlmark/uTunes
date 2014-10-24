@@ -18,7 +18,7 @@
 
       <li><%= link_to "Shop by Merchant", "/merchants/index" %></li>
       <li><%= link_to "Shop by Category", "/sessions/new" %></li>
-      <li><%= link_to "Cart", show_cart_path %></li>
+      <li><%= link_to "Cart", show_cart_path %> | <%= show_cart %></li>
       <% if session[:merchant_id] %>
           <li><%= link_to "Dashboard", "/dashboard" %></li>
       <% end %>
@@ -31,7 +31,7 @@
           <% end %>
     </ul>
       <% if session[:merchant_id] %>
-        <% name = Merchant.find(session[:merchant_id]).name%> 
+        <% name = Merchant.find(session[:merchant_id]).name%>
         <div id="greeting">Hello, <%= name %>!</div>
       <% end %>
 
