@@ -1,4 +1,7 @@
 
+
+
+
 <%= form_for @product do |product_form| %>
   Artist: <%= product_form.text_field :artist %>
   Album: <%= product_form.text_field :album_name %>
@@ -6,7 +9,5 @@
   Stock: <%= product_form.number_field :stock %>
   Price: <%= product_form.number_field :price %>
   Active: <%= product_form.check_box :active %>
-  <%= product_form.submit %>  
-
+  <%= product_form.submit %>
 <% end %>
-
