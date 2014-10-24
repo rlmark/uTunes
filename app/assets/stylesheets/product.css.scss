@@ -12,18 +12,16 @@ ul {
 .product_page {
     text-align: center;
     position: relative;
-    width: 1000px;
     display:block;
 }
 
-.product_image{
+.product_page_image{
     padding-top: 40px;
     position: relative;
     display:block;
-    padding-left: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: 1000px;
+    width: 870px;
 }
 
 .product_details{
@@ -96,7 +94,7 @@ ul {
 
 }
 
-/*// The entire product is encapsulated by this div
+// The entire product is encapsulated by this div
 .product {
   display:inline-block;
   margin: 10px;
@@ -189,4 +187,4 @@ ul {
 		-webkit-transform: scale(1);
 		opacity: 1;
 	}
-}*/
+}
