@@ -11,9 +11,11 @@
         style: "width:500px", autofocus: true %></li>
   <li>Album Photo Url <%= product_form.text_field :image, class: 'form-control',
         style: "width:500px", autofocus: true %></li>
-  <li><div>Description<br>
-    <textarea name="product[description]"  style=" width:500px;height:150px;">
-      </textarea></li>
+  <li>Description<br><%= product_form.text_field :description, class: 'form-control',
+        style: "width:500px;height:250px", autofocus: true %></li>
+
+    <!-- <textarea name="product[description]"  style=" width:500px;height:150px;">
+      </textarea></li> -->
   <li>Stock: <%= product_form.number_field :stock %></li>
   <li>Price: <%= product_form.number_field :price %></li>
   <li>Active: <%= product_form.check_box :active %></li>
