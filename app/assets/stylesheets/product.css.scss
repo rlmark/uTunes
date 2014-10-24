@@ -1,6 +1,6 @@
 
 .product_page img {
-    width: 250px;
+    width: 300px;
     text-align: center;
 
 }
@@ -29,12 +29,13 @@ ul {
     float: right;
     text-align: left;
     padding: 0;
-    height: 250px;
+    height: 246px;
     padding-top: 50px;
     border-style: solid;
     border-color: #E5D5D1;
-    margin-bottom: 80px;
     padding-right: 35px;
+    width: 400px;
+    background-color: #E5D5D1;
 }
 
 .button {
@@ -49,6 +50,9 @@ ul {
     text-align: center;
 }
 
+.product_ratings a:hover{
+  color: #E55852;
+}
 
 // style used to locate and give general styling to forms
 .form-style {
