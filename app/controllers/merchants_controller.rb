@@ -13,7 +13,9 @@ class MerchantsController < ApplicationController
     if params[:holder] == params[:merchant][:password]
       @merchant.password = BCrypt::Password.create(params[:merchant][:password])
       if @merchant.save
-        redirect_to "/sessions/signin"
+        session[:merchant_id] = @merchant.id
+        redirect_to dashboard_path
+        #redirect_to "/sessions/signin"
       else
       #redirect_to "/merchants/new"
         render :new
