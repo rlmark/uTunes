@@ -3,52 +3,73 @@
 
 
 
-<div id="customer_information_form">
+
+<div class="center-text">
+
+
+<div class="form-style">
 
 
 <%= form_for @cart do |f| %>
-<%= f.hidden_field :cart_id, value: session[:cart_id] %>
-
+<% f.hidden_field :cart_id, value: session[:cart_id] %>
+<h2>Billing Information</h2>
 <ul>
 
-<li><%= f.label "name" , value = "Name as it appears on your Credit Card"%>
-<%= f.text_field "name" %>
+<li>
+
+  <%= f.label "name" , value = "Your Name"%>
+<%= f.text_field "name", class: 'form-control', style: "width:400px", autofocus: true,
+    placeholder: 'Name as it appears on your Credit Card'%>
 </li>
-<li><%= f.label "email", value = "Your Email" %>
-<%= f.email_field "email" %></li>
+<li><%= f.label "email",  value = "Your Email" %>
+<%= f.email_field "email", class: 'form-control',style: "width:400px", autofocus: true,
+    placeholder: 'Email'%></li>
 <li>
   <%= f.label "address", value = "Street Address" %>
-  <%= f.text_field "address" %>
+  <%= f.text_field "address", class: 'form-control', style: "width:400px", autofocus: true,
+    placeholder: 'Street Address' %>
 </li>
 <li>
-    <%= f.label "city", value = "City" %>
-    <%= f.text_field "city" %>
-
+    <%= f.label "city", value = "City"  %>
+    <%= f.text_field "city", class: 'form-control', style: "width:400px", autofocus: true,
+      placeholder: 'City'  %>
+</li>
+<li>
     <%= f.label "state", value = "State" %>
-    <%= f.text_field "state" %>
-
+    <%= f.text_field "state", class: 'form-control', style: "width:400px", autofocus: true,
+      placeholder: 'State'  %>
+</li>
+<li>
     <%= f.label "zip", value = "Zip Code" %>
-    <%= f.text_field "zip"%>
+    <%= f.text_field "zip", class: 'form-control', style: "width:400px", autofocus: true,
+      placeholder: 'Zip Code' %>
 </li>
 <li>
     <%= f.label "credit_num", value = "Credit Card Number" %>
-    <%= f.text_field "credit_num" %>
+    <%= f.text_field "credit_num", class: 'form-control', style: "width:250px", autofocus: true,
+      placeholder: 'Credit Card Number'  %>
+
+    <%= f.label "credit_cvv", value = "CVV" %>
+    <%= f.text_field "credit_cvv", class: 'form-control', style: "width:100px", autofocus: true,
+    placeholder: 'CVV'  %>
 </li>
-
 <li>
-    <%= f.label "credit_cvv", value = "Credit CVV" %>
-    <%= f.text_field "credit_cvv" %>
-
-    <%= f.label "month", value = "Expiration Month" %>
-    <%= f.text_field "month" %>
+    <%= f.label "month", value = "Expiration Date: Month" %>
+    <%= f.text_field "month", class: 'form-control', style: "width:100px", autofocus: true,
+    placeholder: '01 - 12'  %>
 
     <%= f.label "year", value = "Expiration Year" %>
-    <%= f.text_field "year" %>
+    <%= f.text_field "year", class: 'form-control', style: "width:100px", autofocus: true,
+    placeholder: '20##'  %>
 </li>
 
-<li>  <%= f.submit value="Submit Information"%></li>
+<li><div class="basic-button">
+  <%= f.submit value="Submit Information"%></li>
+</div>
+
 
   <% end %>
-  </ul>
 
+  </ul>
+</div>
 </div>

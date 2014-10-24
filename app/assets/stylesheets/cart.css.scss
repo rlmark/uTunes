@@ -1,15 +1,14 @@
-.cart_button {
-  display: block;
-
-  height: auto;
-  width: 25%;
-  background_color: #00f;
-  font-family: arial;
-  font-style: bold;
-  border: solid #932260;
-  border-radius: 1em;
-  text-align: center;
-}
+// .cart_button {
+//   display: block;
+//   height: auto;
+//   width: 25%;
+//   background_color: #00f;
+//   font-family: arial;
+//   font-style: bold;
+//   border: solid #932260;
+//   border-radius: 1em;
+//   text-align: center;
+// }
 
 #submit_customer_information {
   display: block;
@@ -22,4 +21,26 @@
   border: solid #932260;
   border-radius: 1em;
   text-align: center;
+}
+
+#stock_remarks {
+  text-align: center
+}
+
+.center-text {
+  display: block;
+  text-align: center;
+}
+
+#cart-buttons {
+  display: block;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-style li {
+  list-style-type: none;
 }

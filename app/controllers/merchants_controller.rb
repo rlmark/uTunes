@@ -13,12 +13,12 @@ class MerchantsController < ApplicationController
     if params[:holder] == params[:merchant][:password]
       @merchant.password = BCrypt::Password.create(params[:merchant][:password])
       if @merchant.save
-        redirect_to "/sessions/signin" 
+        redirect_to "/sessions/signin"
       else
       #redirect_to "/merchants/new"
         render :new
       end
-    else 
+    else
       #redirect_to "/merchants/new"
         render :new
     end
@@ -50,6 +50,7 @@ end
 
   def orders
     merchant = Merchant.find(session[:merchant_id])
+    @merchant_dash = merchant
     if params[:status] != nil
       @ordered_items = merchant.ordered_items.where(status: params[:status])
     else

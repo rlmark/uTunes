@@ -34,7 +34,9 @@ class CartsController < ApplicationController
     @cart.city = params[:cart][:city]
     @cart.state = params[:cart][:state]
     @cart.zip = params[:cart][:zip].to_i
-    @cart.credit_num = params[:cart][:credit_num]
+    cc_number = params[:cart][:credit_num]
+    @cart.credit_num = /\d{4}\Z/.match(cc_number)[0]
+
     @cart.credit_cvv = params[:cart][:credit_cvv]
     @cart.month = params[:cart][:month]
     @cart.year = params[:cart][:year]
