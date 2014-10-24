@@ -2,27 +2,29 @@
 <div class = "product_page">
   
   <div class = "product_image">
-  <img src="<%= @product.image %>" alt="<%= @product.album_name %>" />
+    <img src="<%= @product.image %>" alt="<%= @product.album_name %>" />
+    <div class = "product_details">
+    <ul>
+      <li>Album name:&nbsp; <%= @product.album_name %></li>
+      <li>Artist:&nbsp; <%= @product.artist %></li>
+      <li>Price:&nbsp;$<%= @product.price.to_i/100.00 %></li>
+      <li>Description:&nbsp; <%= @product.description %></li>
+      <li>Categories:&nbsp; 
+        <% @product.categories.each do |category|%>
+          <%= category.name %>.&nbsp;
+        <% end  %></li>
+      <li class = "button"><%= button_to "Order Item","/carts/add_item?product_id=#{params[:id]}", method: :post %></li>
+    </ul>
+    </div>
   </div>
-  
-  <ul class = "product_details">
-    <li>Album name:&nbsp; <%= @product.album_name %></li>
-    <li>Artist:&nbsp; <%= @product.artist %></li>
-    <li>Price:&nbsp; <%= @product.price %></li>
-    <li>Description:&nbsp; <%= @product.description %></li>
-    <li>Categories:&nbsp; 
-      <% @product.categories.each do |category|%>
-        <%= category.name %>.&nbsp;
-      <% end  %>
-    <li><%= button_to "Order Item","/carts/add_item?product_id=#{params[:id]}", method: :post %></li>
-  </ul>
+</div>
   
   <ul class = "product_ratings">
     <li><% if @product.merchant_id != session[:merchant_id ] %></li>
     <%= link_to "Review product", new_rating_path(@product.id) %>
   <% end %>
     <li><% @ratings.each do |rating| %>
-    Stars:&nbsp;<%= "*" *rating.stars %> &nbsp; Comments: &nbsp;<%= rating.comments %></p>
+    <li>Stars:&nbsp;<%= "*" *rating.stars %> &nbsp; Comments: &nbsp;<%= rating.comments %></li>
   <% end  %></li>
   </ul>
 </div>
