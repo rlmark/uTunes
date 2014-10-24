@@ -18,7 +18,7 @@
 
       <li><%= link_to "Shop by Merchant", "/merchants/index" %></li>
       <li><%= link_to "Shop by Category", "/sessions/new" %></li>
-      <li><%= link_to "Cart", show_cart_path %>| <%= show_cart %></li>
+      <li><%= link_to "Cart", show_cart_path %> | <%= show_cart %></li>
       <% if session[:merchant_id] %>
           <li><%= link_to "Dashboard", "/dashboard" %></li>
       <% end %>
