@@ -114,11 +114,20 @@ input[type=submit] {
  }
 
 .cart {
-   display: inline-block;
+   display: block;
    border: solid #ba1cbf;
    background-color: #c4b8cb;
-   width: auto;
+  //  width: auto;
    height: auto;
+   margin: 0 10% 0 10%;
+   th {
+     color: purple;
+     text-align: center;
+     width: 15%;
+   }
+   td {
+     text-align: center;
+   }
 
  }
 
@@ -156,15 +165,16 @@ input[type=submit] {
 
 .basic-button  {
   display: block;
-
   height: auto;
-  width: 25%;
-  background_color: #00f;
+  width: 120px;
+  background-color: lightgray;
   font-family: arial;
-  font-style: bold;
   border: solid #932260;
   border-radius: 1em;
   text-align: center;
+  padding: 10px;
+  margin: 5%;
+  
 }
 
 

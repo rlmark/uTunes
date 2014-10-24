@@ -1,28 +1,35 @@
-<h1>Dashboard</h1>
-
-<div class="products_dash">
-  <%= link_to "Add new products", new_products_path %>
-  <%= render "inventory" %>
+<div class = "center-text">
+<h1><%= @merchant_dash.name.capitalize %>'s Dashboard</h1>
 </div>
-
-<%= link_to "Add new category", new_categories_path %>
 
 <div class="edit_profile">
-  <h2>Merchant Profile</h2>
-  <p>
-    Shop Name: <%= @merchant_dash.name %>
-  </p>
-  <p>
-    Username: <%= @merchant_dash.username %>
-  </p>
-  <p>
-    Email: <%= @merchant_dash.email %>
-  </p>
-  <p>
+  <h2>Profile:</h2>
+  <table>
+    <tr>
+      <td>
+        <ul>
+          <li>Your Username: <%= @merchant_dash.username %></li>
+          <li>Your Email: <%= @merchant_dash.email %></li>
+          <li>---------</li>
+          <li>  <%= link_to "Edit your information", edit_merchant_path(@merchant_dash.id) %></li>
+        </ul>
+      </td>
+      <td>
+        <li>
+          <%= link_to "Display Order Summary Page", orders_path %>
+        </li>
+        <li>----------</li>
+        <li><%= link_to "Add new products", new_products_path %></li>
+      </td>
+    </tr>
+  </table>
 
-  <%= link_to "Edit your information", edit_merchant_path(@merchant_dash.id) %>
 
-  </p>
+
 </div>
 
-<%= link_to "Order Summary Page", orders_path %>
+
+<div class="products_dash">
+
+  <%= render "inventory" %>
+</div>
