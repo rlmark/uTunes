@@ -5,10 +5,15 @@
 <%= form_for @product do |product_form| %>
 <h2>Edit Product Details</h2>
 <ul>
-
-  <li>Artist: <%= product_form.text_field :artist %></li>
-  <li>Album: <%= product_form.text_field :album_name %></li>
-  <li>Image URL: <%= product_form.text_field :image %></li>
+  <li>Album Name <%= product_form.text_field :album_name, class: 'form-control',
+        style: "width:500px", autofocus: true %></li>
+  <li>Artist Name <%= product_form.text_field :artist, class: 'form-control',
+        style: "width:500px", autofocus: true %></li>
+  <li>Album Photo Url <%= product_form.text_field :image, class: 'form-control',
+        style: "width:500px", autofocus: true %></li>
+  <li><div>Description<br>
+    <textarea name="product[description]"  style=" width:500px;height:150px;">
+      </textarea></li>
   <li>Stock: <%= product_form.number_field :stock %></li>
   <li>Price: <%= product_form.number_field :price %></li>
   <li>Active: <%= product_form.check_box :active %></li>
