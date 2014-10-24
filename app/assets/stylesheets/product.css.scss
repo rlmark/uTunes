@@ -1,7 +1,8 @@
+
 .product_page img {
     width: 250px;
     text-align: center;
-      
+
 }
 
 ul {
@@ -48,6 +49,17 @@ ul {
     clear: both;
     display:block;
     text-align: center;
+}
+
+
+// style used to locate and give general styling to forms
+.form-style {
+  display: block;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: right;
+  line-height: 2em;
 }
 
 

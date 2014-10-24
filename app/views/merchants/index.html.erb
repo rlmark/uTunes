@@ -8,15 +8,17 @@
     <hr>
     <div class="merchants_products">
       <% merchant.products.each do |product|%>
-        <div class ="product" id="p<%= product.id %>">
-          <a href="<%= product_path(:id => product.id) %>">
-          <img class="product_image" src="<%= product.image %>" alt="<%= product.album_name %>"/>
-          <h4><%= product.artist %></h4>
-          <h5><%= product.album_name %></h5>
-          <p><%= number_to_currency(product.price/100.0) %></p>
-          </a>
-          <%= button_to "Order Item","/carts/add_item?product_id=#{product.id}", method: :post %>
-        </div>
+        <% if product.active && (product.stock>0) %>
+          <div class ="product" id="p<%= product.id %>">
+            <a href="<%= product_path(:id => product.id) %>">
+            <img class="product_image" src="<%= product.image %>" alt="<%= product.album_name %>"/>
+            <h4><%= product.artist %></h4>
+            <h5><%= product.album_name %></h5>
+            <p><%= number_to_currency(product.price/100.0) %></p>
+            </a>
+            <%= button_to "Order Item","/carts/add_item?product_id=#{product.id}", method: :post %>
+          </div>
+        <% end %>
       <% end %>
     </div>
     <hr>

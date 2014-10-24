@@ -1,22 +1,23 @@
-
-<h2>Your Orders</h2>
-<div class="horizontal_nav">
-  <p>
-    <%= link_to "View All", "/orders" %>
-  </p>
-  <p>
-    <%= link_to "View Pending", "/orders/?status=pending"%>
-  </p>
-  <p>
-    <%= link_to "View Paid", "/orders/?status=paid" %>
-  </p>
-  <p>
-    <%= link_to "View Cancelled", "/orders/?status=cancelled" %>
-  </p>
-  <p>
-    <%= link_to "View Shipped", "/orders/?status=shipped" %>
-  </p>
+<div class = "center-text">
+<h1><%= @merchant_dash.name.capitalize %>'s Orders</h1>
 </div>
+
+<div class="edit_profile">
+  <ul>
+    <li><%= link_to "View All", "/orders" %></li>
+
+    <li><%= link_to "View Pending", "/orders/?status=pending"%></li>
+
+    <li><%= link_to "View Paid", "/orders/?status=paid" %></li>
+
+    <li><%= link_to "View Cancelled", "/orders/?status=cancelled" %></li>
+
+    <li><%= link_to "View Shipped", "/orders/?status=shipped" %></li>
+  </ul>
+</div>
+
+<div class="products_dash">
+
 
 <table>
   <tr>
@@ -50,17 +51,20 @@
       <td><%= item.status %></td>
       <td><%= number_to_currency(item.product.price/100.0) %></td>
       <td><%= item.cart_id %></td>
-      <% if item.status == "paid" %><td>
-        <%=  link_to "Ship Order", ship_order_path(item.cart_id) %></td>
+      <td>
+      <% if item.status == "paid" %>
+        <%=  link_to "Ship Order", ship_order_path(item.cart_id) %>
       <% end %>
+    </td>
     </tr>
   <% end %>
   <tr>
     <td>
-      Total:
+      Total Revenue:
     </td>
     <td>
       <%= number_to_currency(@revenue/100.0) %>
     </td>
   </tr>
 </table>
+</div>

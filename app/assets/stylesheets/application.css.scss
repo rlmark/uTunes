@@ -114,11 +114,24 @@ input[type=submit] {
  }
 
 .cart {
-   display: inline-block;
+   display: block;
    border: solid #ba1cbf;
-   background-color: #c4b8cb;
-   width: auto;
+   background-color: rgba(198, 190, 206, 0.35);
+  //  width: auto;
    height: auto;
+   margin: 0 10% 0 10%;
+   th {
+     color: purple;
+     text-align: center;
+     width: 15%;
+     font-size: 1.2em;
+     padding-top: 1em;
+     padding-bottom: 1em;
+   }
+   td {
+     text-align: center;
+     border-bottom: solid navy .1em
+   }
 
  }
 
@@ -155,16 +168,17 @@ input[type=submit] {
 //##############//
 
 .basic-button  {
-  display: block;
-
+  display: inline-block;
   height: auto;
-  width: 25%;
-  background_color: #00f;
+  width: auto;
+  background-color: lightgray;
   font-family: arial;
-  font-style: bold;
   border: solid #932260;
   border-radius: 1em;
   text-align: center;
+  padding: 10px;
+  margin-left: 20px;
+
 }
 
 
