@@ -22,15 +22,26 @@ td {
     text-align: center;
   }
 
-// Image on Edit Product Page
-.edit-image {
-  display: inline-block;
-  text-align: left;
-  margin-right: 20px;
-  float: left;
+  // Image on Edit Product Page
+  .edit-image {
+    display: inline-block;
+    text-align: left;
+    margin-right: 20px;
+    float: left;
 
+  }
 }
 
+// Delete category button
+.delete-category {
+  display: inline-block;
+  background-color: lightgray;
+  font-size: .80em;
+  line-height: 1.1em;
+  border: solid  #932260 .1em;
+  border-radius: .5em;
+  margin-left: 10px;
+  padding: 2px;
 }
 
 .products_dash {
