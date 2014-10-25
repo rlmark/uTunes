@@ -19,7 +19,7 @@
         style: "width:400px; height:250px", autofocus: true %></div></li>
 
   <li>Stock  <%= product_form.number_field :stock %></li>
-  <li>Price  <%= product_form.text_field :price %></li>
+  <li>Price  <%= product_form.text_field :price, :value => number_to_currency(@product.price/100.0) %></li>
   <li>Active  <%= product_form.check_box :active %></li>
   <li><div class="basic-button">
   <%= product_form.submit %></div></li>
