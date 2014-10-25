@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
 
     @product = merchant.products.new(params.require(:product).permit(:artist, :album_name, :description, :image, :stock, :active))
 
-    thing = /(\d+)\.?(\d{2})?/.match(params[:holder])
+    thing = /(\d+)\.?(\d{2})?/.match(params[:product][:price])
     @product.price = (thing[1].to_i * 100) + thing[2].to_i
     if @product.save
       redirect_to dashboard_path
@@ -34,8 +34,12 @@ class ProductsController < ApplicationController
   end
 
   def update
+
     @product = Product.find(params[:id])
-    if @product.update(params.require(:product).permit(:artist, :album_name, :description,:image, :active, :stock, :price))
+    thing = /(\d+)\.?(\d{2})?/.match(params[:product][:price])
+    @product.price = (thing[1].to_i * 100) + thing[2].to_i
+    render :edit_product unless @product.save
+    if @product.update(params.require(:product).permit(:artist, :album_name, :description,:image, :active, :stock))
     redirect_to dashboard_path
     else
     render :edit_product

@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   validates :stock, presence: true
   validates :stock, numericality: true
   validates :price, presence: true
-  validates :price, numericality: true
+  validates :price, presence: true
   validates :image, presence: true
 
   belongs_to :merchant
