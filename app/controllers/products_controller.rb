@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
 
     @product = merchant.products.new(params.require(:product).permit(:artist, :album_name, :description, :image, :stock, :active))
 
-    thing = /(\d+)\.?(\d{2})?/.match(params[:product][:price])
+    thing = /(\d+)\.?(\d{2})?/.match(params[:holder])
     @product.price = (thing[1].to_i * 100) + thing[2].to_i
     if @product.save
       redirect_to dashboard_path
