@@ -15,20 +15,20 @@
     <label for="username">Username: </label>
     <input type="string" name="merchant[username]" value="<%= @merchant.username %>"/>
   </div>
-  <div>
-    <label for="password">Password: </label>
-    <input type="password" name="merchant[password]" />
-  </div>
+  <!-- <div>
+    <label for="password">New Password: </label>
+    <input type="password" name="merchant[password]" placeholder="Change Password?"/>
+  </div> -->
 
 <br>
   <div class="basic-button">
-  <input type = "submit" value="Submit Editted Merchant Information" class="submit">
+  <input type = "submit" value="Submit Edited Merchant Information" class="submit">
 </div>
 <br><br>
-<div class = "basic-button">
-  <%= link_to "Cancel", root_path %>
+<!-- <div class = "basic-button">
+  <%= link_to "Cancel", dashboard_path %>
 </div>
-<br>
+<br> -->
 
 
 </form>

@@ -32,12 +32,13 @@ end
 
   def update
     @merchant = Merchant.find(session[:merchant_id])
-    if @merchant.update(params.require(:merchant).permit(:name, :email, :username, :password))
-      @merchant.password = BCrypt::Password.create(params[:merchant][:password]) #not working
-      @merchant.save
+    if @merchant.update(params.require(:merchant).permit(:name, :email, :username))
+      # @merchant.password = BCrypt::Password.create(params[:merchant][:password]) #not working
+      # @merchant.save
+
       redirect_to dashboard_path
     else
-      render :edit_merchant
+      redirect_to edit_merchant_path(@merchant.id)
     end
   end
 

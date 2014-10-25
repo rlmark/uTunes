@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   patch "/orders/:id", to: "merchants#change_status", as: :change_status
 
   # Takes you to the edit merchant form
-  get "merchant/:id/edit", to: "merchants#edit", as: :edit_merchant
+  get "merchant/:id/edit", to: "merchants#edit", as: :edit_merchant ####### fixing edit merchant
   # Updates the merchant profile info from form
   put "/merchant", to: "merchants#update"
   # Gets the "add a new product" page
