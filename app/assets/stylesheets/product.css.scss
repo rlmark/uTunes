@@ -62,6 +62,15 @@ ul {
   margin-right: auto;
   text-align: right;
   line-height: 2em;
+
+  #category-list {
+    display: inline-block;
+    height: 400px;
+    padding: 25px;
+    overflow: scroll;
+    background-color: rgba(48, 33, 168, 0.25)
+
+  }
 }
 
 select {

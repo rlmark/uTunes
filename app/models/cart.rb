@@ -8,8 +8,8 @@ class Cart < ActiveRecord::Base
       :presence => {:message => " is required"}
   #   #
 
-    f.validates :credit_num, format: {with: /\A\d{10}\Z/,
-       :message => " Credit cards numbers require 10 digits with no spaces"}
+    f.validates :credit_num, format: {with: /\A\d{4}+\Z/,
+       :message => " Credit cards numbers require 16 digits with no spaces"}
   #   #
     f.validates :month, :presence => {:message => " is required"}
     f.validates :month, :numericality => {:greater_than => 0,

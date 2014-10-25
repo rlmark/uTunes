@@ -9,15 +9,28 @@
 </div>
 
 
+<div class="form-style">
+
 <h1>Current categories</h1>
+
+<div id="category-list">
 
 <ul>
 <% @categories.each do |category| %>
   <li><%= category.name %></li>
   <% end %>
 </ul>
+</div>
+
 
 <%= form_for @category do |f| %>
-  Name: <%= f.text_field :name %>
+  Name: <%= f.text_field :name, class: 'form-control', style: "width:400px", autofocus: true,
+    placeholder: 'New Category Name'  %>
+  <div class = "basic-button">
+
   <%= f.submit %>
+
+</div>
 <% end %>
+
+</div>
