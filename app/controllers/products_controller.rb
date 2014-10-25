@@ -46,6 +46,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  ######### Delete category from product description
+  ## <%= link_to "  Delete Category for this Product", "/products/delete_category?category=#{thing.id}&product=#{@product.id}"%>
+  def delete_category
+    CategoriesProducts.find_by(category_id: params[:category], product_id: params[:product]).destroy
+    redirect_to add_category_path(params[:product])
+
+  end
+
   def check_stock
 
   end

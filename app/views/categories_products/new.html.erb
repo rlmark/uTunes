@@ -3,7 +3,8 @@
 <h1>Associated categories</h1>
 <ul>
 <% @product.categories.each do |thing| %>
-  <li><%= thing.name %></li>
+  <li><%= thing.name %>
+  <%= link_to "  Delete Category for this Product", "/products/delete_category?category=#{thing.id}&product=#{@product.id}"%></li>
 <% end %>
 </ul>
 <%= form_tag "/categories_products/update/" do %>
