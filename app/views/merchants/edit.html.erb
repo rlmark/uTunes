@@ -1,4 +1,4 @@
-<form class="new_entry" action="/merchant" method="post" >
+<form class="form-style" action="/merchant" method="post" >
   <input type="hidden" name="_method" value="PUT">
 
   <h1>Edit Merchant</h1>
@@ -15,13 +15,20 @@
     <label for="username">Username: </label>
     <input type="string" name="merchant[username]" value="<%= @merchant.username %>"/>
   </div>
-  <div>
-    <label for="password">Password: </label>
-    <input type="password" name="merchant[password]" value="<%= @merchant.password %>"/>
-  </div>
+  <!-- <div>
+    <label for="password">New Password: </label>
+    <input type="password" name="merchant[password]" placeholder="Change Password?"/>
+  </div> -->
 
 <br>
+  <div class="basic-button">
+  <input type = "submit" value="Submit Edited Merchant Information" class="submit">
+</div>
+<br><br>
+<!-- <div class = "basic-button">
+  <%= link_to "Cancel", dashboard_path %>
+</div>
+<br> -->
 
-  <input type = "submit" value="Submit Merchant Information" class="submit">
 
 </form>

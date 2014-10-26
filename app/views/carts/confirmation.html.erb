@@ -1,3 +1,6 @@
+
+
+</div>
 <h2>Customer Review Information</h2>
 
 <div id="customer_confirmation">
@@ -8,6 +11,7 @@
 
 <%= render "checkout_cart" %>
 
+<div class="form-style">
 <div id="customer_information">
 
   <table>
@@ -47,6 +51,10 @@
 
 </div>
 
-<div class="cart_button">
+<div class="basic-button">
 <%= link_to "Complete Purchase", complete_order_path %>
+</div>
+<div class="basic-button">
+<%= link_to "Edit Order", check_out_path %>
+</div>
 </div>
