@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post "/merchants/create", to: "merchants#create"
 
   get "/ratings/:id/new", to: "ratings#new", as: :new_rating
-  post "/rating/create/", to: "ratings#create", as: :ratings
+  post "/rating/create", to: "ratings#create", as: :ratings
 
   root "sessions#new"
 
