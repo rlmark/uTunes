@@ -5,15 +5,17 @@
     <img src="<%= @product.image %>" alt="<%= @product.album_name %>" />
     <div class = "product_details">
     <ul>
-      <li>Album name:&nbsp; <%= @product.album_name %></li>
-      <li>Artist:&nbsp; <%= @product.artist %></li>
-      <li>Price:&nbsp;$<%= @product.price.to_i/100.00 %></li>
-      <li>Description:&nbsp; <%= @product.description %></li>
-      <li>Categories:&nbsp; 
+      <li><%= @product.artist %></li>
+      <li class="small"><%= @product.album_name %></li>
+      <div class = "line"></div>
+      <li class = "small"><%= @product.description %></li>
+      <li class = "small">Categories:&nbsp; 
         <% @product.categories.each do |category|%>
           <%= category.name %>.&nbsp;
-        <% end  %></li>
-      <li class = "button"><%= button_to "Order Item","/carts/add_item?product_id=#{params[:id]}", method: :post %></li>
+        <% end  %></li>  
+      <div class = "line"></div>
+      <li><%= number_to_currency(@product.price/100.0) %> </li>
+      <li class = "button" id = "product_button"><%= button_to "Order Item","/carts/add_item?product_id=#{params[:id]}", method: :post %></li>
     </ul>
     </div>
   </div>
