@@ -69,3 +69,13 @@ td {
   float: right;
   text-align: right;
 }
+
+// wrapper for order fulfillment
+
+.orderwrapper {
+  padding: 0 25px;
+}
+
+.orderwrapper td {
+  padding-right: 25px;
+}
