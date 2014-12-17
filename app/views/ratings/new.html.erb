@@ -7,13 +7,16 @@
     <% end %>
   </ul>
 </div>
-
+<div class="rateprod">
+<h3>Rate <%= Product.find(params[:id]).album_name %> by <%= Product.find(params[:id]).artist %></h3>
 <%= form_for @rating do |f| %>
   <%= f.hidden_field :product_id, value: params[:id] %>
-  Stars: <%= f.number_field :stars %>
-  Comments: <%= f.text_field :comments %>
+  <p>Stars: <%= f.number_field :stars %></p>
+  <p>Comments: <%= f.text_field :comments %></p>
+  <br>
   <%= f.submit %>
 <% end %>
+</div>
 
 
 <!--<form action="/ratings/create" method="POST">

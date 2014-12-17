@@ -9,8 +9,12 @@
       <li><%= @product.artist %></li>
       <li class="small"><%= @product.album_name %></li>
       <div class = "line"></div>
+<!-- <<<<<<< HEAD
       <li class = "small"><%= @product.description %></li>
       <li class = "small">Categories:&nbsp;
+======= -->
+      <li class = "small itemdesc"><%= @product.description %></li>
+      <li class = "small ">Categories:&nbsp;
         <% @product.categories.each do |category|%>
           <%= category.name %>.&nbsp;
         <% end  %></li>
