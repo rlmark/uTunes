@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get "/sessions/new", to: "sessions#new"
   # post "/sessions/new", to: "sessions#new"
-  get "/sessions/signin", to: "sessions#signin"  
+  get "/sessions/signin", to: "sessions#signin"
 
   post "/sessions", to: "sessions#create"
   delete "/sessions", to: "sessions#delete"
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post "/merchants/create", to: "merchants#create"
 
   get "/ratings/:id/new", to: "ratings#new", as: :new_rating
-  post "/rating/create/", to: "ratings#create", as: :ratings
+  post "/rating/create", to: "ratings#create", as: :ratings
 
   root "sessions#new"
 
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   patch "/orders/:id", to: "merchants#change_status", as: :change_status
 
   # Takes you to the edit merchant form
-  get "merchant/:id/edit", to: "merchants#edit", as: :edit_merchant
+  get "merchant/:id/edit", to: "merchants#edit", as: :edit_merchant ####### fixing edit merchant
   # Updates the merchant profile info from form
   put "/merchant", to: "merchants#update"
   # Gets the "add a new product" page
@@ -40,6 +40,8 @@ Rails.application.routes.draw do
   post "/products/create", to: "products#create", as: :create_products
   # Edits a preexisting product
   get "/products/edit/:id", to: "products#edit", as: :edit_product
+  # Delete category from product description
+  get "/products/delete_category", to: "products#delete_category", as: :delete_category
 
   get "/categories/new", to: "categories#new", as: :new_categories
   post "/category/create", to: "categories#create", as: :categories
