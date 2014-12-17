@@ -29,4 +29,10 @@
 
 .deleteproduct {
   background-color: white !important;
+  border: none;
+  color: #2C3462 !important;
+}
+
+.deleteproduct:hover {
+  color: #E55852 !important;
 }
