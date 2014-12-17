@@ -109,6 +109,10 @@ select {
   position: relative;
   width: 210px;
   vertical-align: top;
+
+  a :hover {
+    color: #E55852;
+  }
 }
 
 // The product image

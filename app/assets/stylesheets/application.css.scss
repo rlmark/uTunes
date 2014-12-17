@@ -28,17 +28,21 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
+.vendor-name {
+
+}
+
 a {
   text-decoration: none;
 }
 
 //Styling all submit buttons across site
-
-input[type=submit] {
-  background-color: lightgray;
-  padding: 5px;
-  border: none;
-}
+//
+// input[type=submit] {
+//   background-color: lightgray;
+//   padding: 5px;
+//   border: none;
+// }
 
 
  #main_nav_bar {
@@ -103,6 +107,9 @@ input[type=submit] {
      margin: 8px 0;
    }
 
+   li :hover {
+     color: #E55852;
+   }
 
  }
 
@@ -167,18 +174,48 @@ input[type=submit] {
 // FORM STYLE   //
 //##############//
 
-.basic-button  {
+.basic-button, .basic-del-button, .sm-button  {
   display: inline-block;
   height: auto;
   width: auto;
-  background-color: lightgray;
+  background-color: #2C3462;
+  color: white;
   font-family: arial;
-  border: solid #932260;
-  border-radius: 1em;
+  border: solid #2C3462;
+  border-radius: 3em;
   text-align: center;
-  padding: 10px;
+  padding: 2px;
   margin-left: 20px;
 
+}
+
+.basic-del-button {
+  background-color: #bd0000;
+  border: solid #bd0000;
+}
+
+.sm-button {
+  font-size: .75em;
+  margin: 2px;
+}
+
+#cart-buttons {
+  ul {
+    list-style: none;
+  }
+  li {
+    list-style-type: none;
+    float: left;
+  }
+}
+
+
+input[type=submit]{
+  background-color: #2C3462;
+  padding: 5px;
+  color: white;
+  border-radius: 3em;
+  text-align: center;
 }
 
 

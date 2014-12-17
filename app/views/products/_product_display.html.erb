@@ -8,7 +8,7 @@
           <h5><%= product.album_name %></h5>
           <p><%= number_to_currency(product.price/100.0) %></p>
         </a>
-        <%= button_to "Order Item","/carts/add_item?product_id=#{product.id}", method: :post %>
+        <%= link_to "Order Item","/carts/add_item?product_id=#{product.id}", class: "basic-button", method: :post %>
       </div>
     <% end %>
   <% end %>

@@ -1,5 +1,5 @@
 <div class="center-text">
-  <h1>Shopping Cart</h1>
+  <h1><strong>Shopping Cart</strong></h1>
 </div>
 
 
@@ -39,12 +39,12 @@
     <td>
   <%= form_for item do |f| %>
     <%= f.hidden_field :item_id, value: item.id %>
-    <%= f.number_field :quantity, style: "width:100px"%>
-    <%= submit_tag "Update" %>
+    <strong><%= f.number_field :quantity, style: "width:50px; text-align: center"%></strong>
+    <%= submit_tag "Update Quantity", class: "sm-button" %>
   <% end %>
     </td>
     <td>
-      <%= button_to "Delete", delete_ordered_item_path(item.id),  method: :delete %>
+      <%= link_to "Delete", delete_ordered_item_path(item.id), class: "basic-del-button sm-button", method: :delete %>
     </td>
     <td>
       <%= "#{Product.find(item.product_id).stock}" %>
@@ -65,7 +65,7 @@
     <td></td>
     <td></td>
     <td>Cart Total:</td>
-    <td><%= "#{number_to_currency(@cart_total/100.0)}" %></td>
+    <td><strong><%= "#{number_to_currency(@cart_total/100.0)}" %></strong></td>
   </tr>
 </table>
 <div id="stock_remarks">
@@ -74,10 +74,15 @@
 </div>
 
 <div id="cart-buttons">
-  <div class="basic-button">
-    <%= link_to "Check Out", "/check_out"%>
-  </div>
-  <div class="basic-button inline-button">
-    <%= button_to "Empty Cart", empty_cart_path,  method: :delete %>
-  </div>
+  <ul>
+
+  <li>
+  <div>
+    <%= link_to "Check Out", "/check_out",class: "basic-button"%>
+  </div></li>
+  <li>
+  <div class="inline-button">
+    <%= link_to "Cancel Order", empty_cart_path,  method: :delete ,class: "basic-del-button"%>
+  </div></li>
+</ul>
 </div>

@@ -17,7 +17,7 @@ class CartsController < ApplicationController
       @cart_total = 0.0
     else
       @cart = Cart.find(session[:cart_id])
-      @ordered_items = Cart.find(session[:cart_id]).ordered_items
+      @ordered_items = Cart.find(session[:cart_id]).ordered_items.sort_by{|item|item.product_id}
       @cart_total = total_cart(@ordered_items)
     end
   end

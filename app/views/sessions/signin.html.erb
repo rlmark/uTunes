@@ -7,7 +7,7 @@
   <label for="merchant_password">Password:</label><br>
   <input placeholder = "Password" type="password" name="merchant[password]" />
   <br><br>
-  <input type="submit" value="Sign In" class="submit"/>
+  <input type="submit" value="Sign In" class="basic-button"/>
 
 
 </fieldset>
@@ -15,8 +15,8 @@
  <fieldset>
    <legend><h2>Create A New Merchant Account</h2></legend><br><br>
 
-<div class = "basic-button">
-  <%= link_to "Join Now!", "/merchants/new" %>
+<div >
+  <%= link_to "Join Now!", "/merchants/new",class: "basic-button" %>
 </div>
 
 </fieldset>

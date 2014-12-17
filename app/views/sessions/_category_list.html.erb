@@ -1,11 +1,11 @@
 <ul>
 
-  <li><%= link_to "Show All Categories", "/sessions/new"%></li>
+  <li><strong><%= link_to "Show All Categories", "/sessions/new"%></strong></li>
 
 
 <% @categories.each do |category| %>
 
-  <li><%= link_to "#{category.name}", "/sessions/new?category=#{category.id}"%></li>
+  <li><strong><%= link_to "#{category.name}", "/sessions/new?category=#{category.id}"%></strong></li>
 
 <% end %>
 

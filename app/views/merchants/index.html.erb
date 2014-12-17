@@ -1,10 +1,10 @@
 <!-- SHOW ALL MERCHANTS  -->
 
-<div>
+<div id="merchant-index">
   <% @all_merchants.each do |merchant|  %>
 
-    <b>Shop Name: <%= merchant.name %><br></b>
-    Email: <%= merchant.email %><br>
+    <h2><strong> <%= merchant.name %></strong></h2>
+    <h3>Email: <%= merchant.email %></h3>
     <hr>
     <div class="merchants_products">
       <% merchant.products.each do |product|%>
@@ -16,7 +16,7 @@
             <h5><%= product.album_name %></h5>
             <p><%= number_to_currency(product.price/100.0) %></p>
             </a>
-            <%= button_to "Order Item","/carts/add_item?product_id=#{product.id}", method: :post %>
+            <%= link_to "Order Item","/carts/add_item?product_id=#{product.id}",class: "basic-button", method: :post %>
           </div>
         <% end %>
       <% end %>
